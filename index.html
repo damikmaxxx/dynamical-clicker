@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
+
 <body>
-    <div id="t">
-        qweq
+    <div class="panel">...
+
+        <div>
+            очки
+            <span id="score">0</span>
+        </div>
+        
     </div>
+    <canvas id="canvas"></canvas>
+    <div class="panel">...</footer>
 </body>
 <script>
- 
- document.getElementById("tqweqeq").html = "asdas";
+
 </script>
+<script src="js/script.js"></script>
+<script src="js/listener.js"></script>
+<script src="js/object.js"></script>
+<script src="js/objects/circle.js"></script>
+<script src="js/store.js"></script>
+<script src="js/canvas.js"></script>
+
+<script>
+    let mouse = {x:0,y:0};
+    const canvas = new Canvas({ width: CANVAS.width, height: CANVAS.height });
+    canvas.start();
 </script>
+
+
+
+
 </html>

@@ -1,0 +1,24 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 100px 5fr 100px;
+}
+
+header,
+footer,
+canvas {
+    /* border:1px solid black; */
+}
+
+#canvas {
+    height: 100%;
+    /* width:100%;  */
+    /* border:1px solid black;  */
+}
