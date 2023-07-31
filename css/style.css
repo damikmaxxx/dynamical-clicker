@@ -13,7 +13,7 @@ body {
   font-family: sans-serif;
   display: -ms-grid;
   display: grid;
-  height: 100vh;
+  height: 60vh;
   -ms-grid-rows: 100px 5fr 100px;
   grid-template-rows: 100px 5fr 100px;
   background-color: rgb(38, 44, 80);
