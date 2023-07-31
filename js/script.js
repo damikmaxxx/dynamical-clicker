@@ -18,3 +18,7 @@ function getRandomInt(min, max) {
 function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
 }
+
+function inRad(num) {
+	return num * Math.PI / 180;
+}

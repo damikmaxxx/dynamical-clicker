@@ -4,13 +4,14 @@ let STORE = {
   objects: [
     new Circle({ id: 1, x: 100, y: 100, xS: 1, yS: 1, r: 50, hover: false,value:10, }),
     new Circle({ id: 2, x: 200, y: 200, xS: 2, yS: -1, r: 20, hover: false,value:10, }),
+    new Square({ id: 3, x: 500, y: 200, xS: 1, yS: 1, r: 30, hover: false,value:50, }),
   ],
   addPoint(p) {
     STORE.score += p;
     UPDATE_VIEW_INFO();
   },
   addObject(obj) {
-    STORE.objects.push(new Circle(obj));
+    STORE.objects.push(new Square(obj));
   },
   
   mouseHoverObjects() {

@@ -4,23 +4,20 @@ class Canvas {
     this.height = obj.height;
   }
   start(info) {
-    
     STORE.score = info?.score || 0;
     STORE.damage = info?.damage || 0;
-    UPDATE_VIEW_INFO()
+    UPDATE_VIEW_INFO();
     setInterval(() => {
-      if(!ACTIVE_GAME) return
+      if (!ACTIVE_GAME) return;
       this.update();
-      console.log("0.01sec")
+      console.log("0.01sec");
     }, 10);
     setInterval(() => {
-      if(!ACTIVE_GAME) return
+      if (!ACTIVE_GAME) return;
       this.spawnerObjects();
     }, info?.spawnObj || 10000);
-
   }
   update() {
-    
     ctx.clearRect(0, 0, this.width, this.height);
     this.borderCanvas();
     this.objectsActions();
@@ -34,7 +31,7 @@ class Canvas {
 
   spawnerObjects() {
     let speed = 1;
-    let radius = getRandomInt(10, 50)
+    let radius = getRandomInt(10, 50);
     STORE.addObject({
       x: getRandomInt(0, this.width - radius),
       y: getRandomInt(0, this.height - radius),
