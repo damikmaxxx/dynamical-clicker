@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+}
+
 /* переменные */
 
 $color-accent: rgb(179, 55, 207);
@@ -75,6 +79,8 @@ canvas {
         color: $color-text_white;
 
         transition-duration: 0.2s;
+        
+        cursor: pointer;
     }
 
     .panel__button-market:hover{

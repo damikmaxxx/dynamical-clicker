@@ -30,7 +30,7 @@ class Canvas {
   }
 
   spawnerObjects() {
-    let speed = 1;
+    let speed = 0.05;
     let radius = getRandomInt(10, 50);
     STORE.addObject({
       x: getRandomInt(0, this.width - radius),
