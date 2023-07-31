@@ -38,6 +38,7 @@
 <script>
     let ACTIVE_GAME = true;
     document.addEventListener("visibilitychange", function () {
+        console.log(ACTIVE_GAME)
         ACTIVE_GAME = !document.hidden
     });
 
