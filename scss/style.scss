@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* сброс */
 
 * {
@@ -8,9 +9,12 @@
 
 /* переменные */
 
-$color-accent:rgb(179, 55, 207);
-$color-help:rgb(38, 44, 80);
-$color-help_Second:rgb(27, 31, 60);
+$color-accent: rgb(179, 55, 207);
+$color-help: rgb(38, 44, 80);
+$color-help_Second: rgb(27, 31, 60);
+$color-text_white:white;
+
+$font-medium:18px;
 
 /* код */
 
@@ -21,6 +25,8 @@ body {
     grid-template-rows: 100px 5fr 100px;
 
     background-color: $color-help;
+    font-family: Montserrat;
+    font-size: $font-medium;
 }
 
 header,
@@ -35,7 +41,40 @@ canvas {
     /* border:1px solid black;  */
 }
 
-.panel{
+.panel {
     color: white;
     background-color: $color-help_Second;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+
+    .panel__info {
+        display: flex;
+        align-items: center;
+
+        >div {
+            margin: 0 6vw 0 6vw;
+        }
+    }
+
+
+    .panel__button-market{
+        height: 46px;
+        font-size: $font-medium;
+        width: 200px;
+
+        margin: 0 6vw 0 0;
+        border: 2px solid $color-accent;
+        background: transparent;
+        color: $color-text_white;
+
+        transition-duration: 0.2s;
+    }
+
+    .panel__button-market:hover{
+        background-color: $color-accent;
+        transition-duration: 0.2s;
+    }
 }

@@ -9,19 +9,27 @@
 </head>
 
 <body>
-    <div class="panel">...
+    <div class="panel">
+        <div class="panel__info">
+            <div class="panel__info-score">
+                очки:
+                <span id="score">0</span>
+            </div>
+            <div class="panel__info-damage">
+                сила удара:
+                <span id="damage">0</span>
+            </div>
+            <div class="panel__info-choto">
+                что то будет
+            </div>
+        </div>
 
-        <div>
-            очки
-            <span id="score">0</span>
-        </div>
-        <div>
-            сила удара
-            <span id="damage">0</span>
-        </div>
+        <button class="panel__button-market">
+            Магазин
+        </button>
     </div>
     <canvas id="canvas"></canvas>
-    <div class="panel">...</div>
+    <div class="panel"></div>
 </body>
 <script>
 
@@ -39,13 +47,12 @@
 <script>
     let ACTIVE_GAME = true;
     document.addEventListener("visibilitychange", function () {
-        console.log(ACTIVE_GAME)
         ACTIVE_GAME = !document.hidden
     });
 
     let mouse = { x: 0, y: 0 };
     const canvas = new Canvas({ width: CANVAS.width, height: CANVAS.height });
-    canvas.start({ spawnObj: 1000, damage: 4, score: 0 });
+    canvas.start({ spawnObj: 1000, damage: 20, score: 0 });
 </script>
 
 
