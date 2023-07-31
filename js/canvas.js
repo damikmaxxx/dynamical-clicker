@@ -4,19 +4,23 @@ class Canvas {
     this.height = obj.height;
   }
   start(info) {
+    
     STORE.score = info?.score || 0;
     STORE.damage = info?.damage || 0;
     UPDATE_VIEW_INFO()
     setInterval(() => {
+      if(!ACTIVE_GAME) return
       this.update();
       console.log("0.01sec")
     }, 10);
     setInterval(() => {
+      if(!ACTIVE_GAME) return
       this.spawnerObjects();
     }, info?.spawnObj || 10000);
 
   }
   update() {
+    
     ctx.clearRect(0, 0, this.width, this.height);
     this.borderCanvas();
     this.objectsActions();

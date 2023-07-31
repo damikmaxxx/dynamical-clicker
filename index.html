@@ -36,9 +36,14 @@
 <script src="js/canvas.js"></script>
 
 <script>
-    let mouse = {x:0,y:0};
+    let ACTIVE_GAME = true;
+    document.addEventListener("visibilitychange", function () {
+        ACTIVE_GAME = !document.hidden
+    });
+
+    let mouse = { x: 0, y: 0 };
     const canvas = new Canvas({ width: CANVAS.width, height: CANVAS.height });
-    canvas.start({spawnObj:1000, damage:2});
+    canvas.start({ spawnObj: 1000, damage: 4, score: 0 });
 </script>
 
 
