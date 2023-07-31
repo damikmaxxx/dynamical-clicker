@@ -15,7 +15,10 @@
             очки
             <span id="score">0</span>
         </div>
-        
+        <div>
+            сила удара
+            <span id="damage">0</span>
+        </div>
     </div>
     <canvas id="canvas"></canvas>
     <div class="panel">...</footer>
@@ -24,16 +27,18 @@
 
 </script>
 <script src="js/script.js"></script>
-<script src="js/listener.js"></script>
 <script src="js/object.js"></script>
 <script src="js/objects/circle.js"></script>
 <script src="js/store.js"></script>
+<script src="js/listener.js"></script>
+
+
 <script src="js/canvas.js"></script>
 
 <script>
     let mouse = {x:0,y:0};
     const canvas = new Canvas({ width: CANVAS.width, height: CANVAS.height });
-    canvas.start();
+    canvas.start({spawnObj:1000, damage:2});
 </script>
 
 

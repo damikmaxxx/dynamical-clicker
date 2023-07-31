@@ -6,8 +6,9 @@ let height = (CANVAS.height = innerHeight - 200);
 
 
 
-function updateScore() {
+function UPDATE_VIEW_INFO() {
   document.getElementById("score").textContent = STORE.SCORE;
+  document.getElementById("damage").textContent = STORE.damage;
 }
 
 function getRandomInt(min, max) {

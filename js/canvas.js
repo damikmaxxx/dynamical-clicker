@@ -3,19 +3,24 @@ class Canvas {
     this.width = obj.width;
     this.height = obj.height;
   }
-  start() {
+  start(info) {
+    STORE.score = info?.score || 0;
+    STORE.damage = info?.damage || 0;
+    UPDATE_VIEW_INFO()
     setInterval(() => {
       this.update();
+      console.log("0.01sec")
     }, 10);
-    // setInterval(() => {
-    //   this.spawnerObjects();
-    // }, 1000);
+    setInterval(() => {
+      this.spawnerObjects();
+    }, info?.spawnObj || 10000);
+
   }
   update() {
     ctx.clearRect(0, 0, this.width, this.height);
     this.borderCanvas();
     this.objectsActions();
-    mouseHover();
+    STORE.mouseHoverObjects();
   }
   borderCanvas() {
     ctx.lineWidth = 1;
@@ -25,8 +30,8 @@ class Canvas {
 
   spawnerObjects() {
     let speed = 1;
-    let radius = getRandomInt(10, 100)
-    addObject({
+    let radius = getRandomInt(10, 50)
+    STORE.addObject({
       x: getRandomInt(0, this.width - radius),
       y: getRandomInt(0, this.height - radius),
       xS: getRandomFloat(-speed, speed + 1),
