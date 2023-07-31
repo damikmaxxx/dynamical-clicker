@@ -1,0 +1,41 @@
+/* сброс */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* переменные */
+
+$color-accent:rgb(179, 55, 207);
+$color-help:rgb(38, 44, 80);
+$color-help_Second:rgb(27, 31, 60);
+
+/* код */
+
+body {
+    font-family: sans-serif;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 100px 5fr 100px;
+
+    background-color: $color-help;
+}
+
+header,
+footer,
+canvas {
+    /* border:1px solid black; */
+}
+
+#canvas {
+    height: 100%;
+    /* width:100%;  */
+    /* border:1px solid black;  */
+}
+
+.panel{
+    color: white;
+    background-color: $color-help_Second;
+}
