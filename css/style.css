@@ -36,9 +36,6 @@ canvas {
   height: 100%;
   /* width:100%;  */
   /* border:1px solid black;  */
-  -webkit-box-ordinal-group: 21;
-      -ms-flex-order: 20;
-          order: 20;
 }
 
 .panel {
@@ -54,9 +51,6 @@ canvas {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-ordinal-group: 21;
-      -ms-flex-order: 20;
-          order: 20;
 }
 .panel .panel__info {
   display: -webkit-box;
@@ -85,25 +79,18 @@ canvas {
 }
 .panel .panel__button-market .market {
   position: fixed;
-  right: -300px;
+  right: -400px;
   top: 100px;
-  width: 300px;
+  width: 400px;
   height: calc(100vh - 200px);
   background-color: rgb(27, 31, 60);
   border-left: 2px solid rgb(179, 55, 207);
+  /* opacity: 0.9; */
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
-  -webkit-box-ordinal-group: 11;
-      -ms-flex-order: 10;
-          order: 10;
 }
 .panel .panel__button-market:hover {
   background-color: rgb(179, 55, 207);
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-}
-.panel .panel__button-market:hover .market {
-  right: 0px;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
 }

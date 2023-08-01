@@ -46,8 +46,6 @@ canvas {
     height: 100%;
     /* width:100%;  */
     /* border:1px solid black;  */
-
-    order: 20;
 }
 
 .panel {
@@ -58,8 +56,6 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    order: 20;
     
 
 
@@ -93,17 +89,17 @@ canvas {
         
         .market {
             position: fixed;
-            right: -300px;
+            right: -400px;
             top: 100px;
         
-            width: 300px;
+            width: 400px;
             height: calc(100vh - 200px);
             background-color: $color-help_Second;
             border-left: 2px solid $color-accent;
+            /* opacity: 0.9; */
         
             transition-duration: 0.2s;
 
-            order: 10;
         }
     }
 
@@ -113,11 +109,6 @@ canvas {
 
     }
 
-    .panel__button-market:hover .market {
-        right: 0px;
-        transition-duration: 0.2s;
-
-    }
 
     
 
