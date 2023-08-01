@@ -1,3 +1,5 @@
+let color_accent = 'rgb(179, 55, 207)'
+
 const CANVAS = document.getElementById("canvas");
 const ctx = CANVAS.getContext("2d");
 let width = (CANVAS.width = innerWidth);
@@ -20,5 +22,6 @@ function getRandomFloat(min, max) {
 }
 
 function inRad(num) {
-	return num * Math.PI / 180;
+  return num * Math.PI / 180;
 }
+

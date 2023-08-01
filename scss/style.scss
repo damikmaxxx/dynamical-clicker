@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -16,10 +16,10 @@ a{
 $color-accent: rgb(179, 55, 207);
 $color-help: rgb(38, 44, 80);
 $color-help_Second: rgb(27, 31, 60);
-$color-text_white:white;
+$color-text_white: white;
 
-$font-medium:18px;
-$font-small:14px;
+$font-medium: 18px;
+$font-small: 14px;
 
 /* код */
 
@@ -40,10 +40,14 @@ canvas {
     /* border:1px solid black; */
 }
 
+
+
 #canvas {
     height: 100%;
     /* width:100%;  */
     /* border:1px solid black;  */
+
+    order: 20;
 }
 
 .panel {
@@ -54,6 +58,9 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    order: 20;
+    
 
 
     .panel__info {
@@ -68,7 +75,7 @@ canvas {
     }
 
 
-    .panel__button-market{
+    .panel__button-market {
         height: 46px;
         font-size: $font-medium;
         width: 200px;
@@ -79,12 +86,40 @@ canvas {
         color: $color-text_white;
 
         transition-duration: 0.2s;
-        
+
         cursor: pointer;
+
+
+        
+        .market {
+            position: fixed;
+            right: -300px;
+            top: 100px;
+        
+            width: 300px;
+            height: calc(100vh - 200px);
+            background-color: $color-help_Second;
+            border-left: 2px solid $color-accent;
+        
+            transition-duration: 0.2s;
+
+            order: 10;
+        }
     }
 
-    .panel__button-market:hover{
+    .panel__button-market:hover {
         background-color: $color-accent;
         transition-duration: 0.2s;
+
     }
+
+    .panel__button-market:hover .market {
+        right: 0px;
+        transition-duration: 0.2s;
+
+    }
+
+    
+
+
 }

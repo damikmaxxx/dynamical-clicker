@@ -26,12 +26,14 @@
             </div>
         </div>
 
-        <button class="panel__button-market">
+        <button class="panel__button-market" onclick="shop_opening()">
             Магазин
+            <div class="market"></div>
         </button>
     </div>
     <canvas id="canvas"></canvas>
     <div class="panel"></div>
+
 </body>
 <script>
 
@@ -55,6 +57,16 @@
     let mouse = { x: 0, y: 0 };
     const canvas = new Canvas({ width: CANVAS.width, height: CANVAS.height });
     canvas.start({ spawnObj: 1000, damage: 20, score: 0 });
+
+/* мой код */
+    const market = document.querySelector('.market');
+    const panel__button_market = document.querySelector('.panel__button-market')
+
+    const shop_opening = () => {
+        market.style.right = '0'
+        panel__button_market.style.background = color_accent;
+    }
+
 </script>
 
 
