@@ -58,10 +58,42 @@
     const canvas = new Canvas({ width: CANVAS.width, height: CANVAS.height });
     canvas.start({ spawnObj: 1000, damage: 20, score: 0 });
 
-/* мой код */
+    STORE.objects = [
+        new Circle({
+            x: 100,
+            y: 100,
+            xS: 1,
+            yS: 1,
+            r: 50,
+            hover: false,
+            value: 10,
+        }),
+        new Circle({
+            x: 200,
+            y: 200,
+            xS: 2,
+            yS: -1,
+            r: 20,
+            hover: false,
+            value: 30,
+            isParticle: false,
+        }),
+        new Square({
+            x: 500,
+            y: 200,
+            xS: 1,
+            yS: 1,
+            r: 30,
+            hover: false,
+            value: 50,
+        }),
+    ]
+
+
+    /* мой код */
     const market = document.querySelector('.market');
     const panel__button_market = document.querySelector('.panel__button-market')
-
+    let color_accent = 'rgb(179, 55, 207)'
     const shop_opening = () => {
         market.style.right = '0'
         panel__button_market.style.background = color_accent;

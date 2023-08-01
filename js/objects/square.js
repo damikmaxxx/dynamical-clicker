@@ -5,7 +5,6 @@ class Square extends Object {
   }
   render() {
     this.rotate++;
-    console.log(this.x, this.y, inRad(this.rotate));
     ctx.beginPath();
     ctx.translate(this.x, this.y);
     ctx.rotate(inRad(this.rotate));
@@ -14,7 +13,7 @@ class Square extends Object {
     ctx.fillStyle = "rgba(255,248,220)";
     ctx.fillRect(-this.r, -this.r, this.r * 2, this.r * 2);
 
-    if (this.hover) {
+    if (this.hover && !this.isParticle) {
         let d = 10;
       ctx.beginPath();
       ctx.lineWidth = 2;
@@ -25,4 +24,6 @@ class Square extends Object {
     ctx.translate(-this.x, -this.y);
     this.renderText();
   }
+
+
 }

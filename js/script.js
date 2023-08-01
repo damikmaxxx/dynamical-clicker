@@ -1,9 +1,12 @@
-let color_accent = 'rgb(179, 55, 207)'
+
 
 const CANVAS = document.getElementById("canvas");
 const ctx = CANVAS.getContext("2d");
 let width = (CANVAS.width = innerWidth);
 let height = (CANVAS.height = innerHeight - 200);
+
+
+
 
 
 

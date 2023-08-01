@@ -1,6 +1,7 @@
 class Object {
   constructor(obj) {
-    this.id = obj?.id || Date.now();
+    this.id = obj?.id || STORE?.returnAvailableId();
+    this.type = obj?.type || this.constructor.name;
     this.x = obj?.x || 50;
     this.y = obj?.y || 50;
     this.xS = obj?.xS || 2;
@@ -8,6 +9,7 @@ class Object {
     this.r = obj?.r || 50;
     this.hover = obj?.hover || 50;
     this.value = obj?.value || 50;
+    this.isParticle = obj?.isParticle || false;
   }
 
   action() {
@@ -45,6 +47,7 @@ class Object {
     this.y += this.yS;
   }
   renderText() {
+    if(this.isParticle) return;
     let fontSize = this.r/2
     ctx.beginPath();
     ctx.font = fontSize + 'px Verdana';
@@ -60,7 +63,34 @@ class Object {
   decreaseValue(val){
     this.value > 0 ? this.value -= val : this.deleteFromStore();
   }
+  
   deleteFromStore(){
     STORE.deleteObject(this.id)
+  }
+  getDamage(damage){
+    let points= 0;
+    if(this.isParticle) return 0;
+
+    if (this.value - damage <= 0){
+      this.getAnimDamage(damage)
+      points = this.value;
+      this.deleteFromStore();
+    } 
+    else{
+      this.getAnimDamage(damage)
+      this.decreaseValue(damage)
+      points = damage;
+    }
+
+
+    return points;
+  }
+  getAnimDamage(num) {
+    if(this.isParticle) return;
+    let speed = 2;
+    for (let i = 0; i < num; i++) {
+      STORE.addObject({ x: this.x, y: this.y, xS: getRandomFloat(-speed, speed + 1), yS:getRandomFloat(-speed, speed + 1), r:getRandomFloat(1, 10), value:getRandomInt(10,20),isParticle:true,type:this.type });
+    }
+
   }
 }

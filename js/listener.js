@@ -10,14 +10,7 @@ CANVAS.addEventListener("mousedown", (e) => {
     );
   });
   if(!clickObj) return;
-  if (clickObj.value - STORE.damage <= 0){
-    STORE.addPoint(clickObj.value);
-    STORE.deleteObject(clickObj.id);
-  } 
-  else{
-    STORE.addPoint(STORE.damage);
-    clickObj.value -= STORE.damage;
-  }
+  STORE.addPoint(clickObj.getDamage(STORE.damage));
 });
 
 window.onresize = resize;

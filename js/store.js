@@ -1,19 +1,42 @@
 let STORE = {
+  lastID: 0,
   score: 0,
-  damage:15,
+  damage: 15,
+  upgrades: {
+    objects: {
+      circle: {
+        radius: 10,
+        speed: 100,
+        value: 10,
+      },
+    },
+  },
   objects: [
-    new Circle({ id: 1, x: 100, y: 100, xS: 1, yS: 1, r: 50, hover: false,value:10, }),
-    new Circle({ id: 2, x: 200, y: 200, xS: 2, yS: -1, r: 20, hover: false,value:10, }),
-    new Square({ id: 3, x: 500, y: 200, xS: 1, yS: 1, r: 30, hover: false,value:50, }),
+
   ],
   addPoint(p) {
     STORE.score += p;
     UPDATE_VIEW_INFO();
   },
   addObject(obj) {
-    STORE.objects.push(new Square(obj));
+    obj.id = this.returnAvailableId();
+    if (!obj.type) {
+      let objNum = getRandomInt(1, 3);
+      STORE.objects.push(objNum == 1 ? new Square(obj) : new Circle(obj));
+    }
+    else{
+      switch (obj.type) {
+        case "Circle":
+          STORE.objects.push(new Circle(obj));
+          break;
+        case "Square":
+          STORE.objects.push(new Square(obj));
+          break;
+        default: console.log("Такого типа не существует")
+      }
+    }
+
   },
-  
   mouseHoverObjects() {
     STORE.objects.forEach((el) => {
       el.hover =
@@ -27,7 +50,11 @@ let STORE = {
   },
   deleteObject(id) {
     STORE.objects = STORE.objects.filter((el) => !(el.id == id));
-    
+  },
+  returnAvailableId(){
+    console.log(this.lastID)
+    let id = this.lastID + 1
+    this.lastID++;
+    return id;
   }
 };
-
