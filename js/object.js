@@ -5,8 +5,8 @@ class Object {
     this.type = obj?.type || this.constructor.name;
     this.x = obj?.x || 50;
     this.y = obj?.y || 50;
-    this.xS = obj?.xS || 2;
-    this.yS = obj?.yS || 2;
+    this.xS = obj?.xS || 0;
+    this.yS = obj?.yS || 0;
     this.r = obj?.r || 50;
     this.hover = obj?.hover || 50;
     this.value = obj?.value || 50;
@@ -20,6 +20,7 @@ class Object {
     this.checkBorder();
     this.move();
     this.decreaseValue(0.1);
+    console.log(this.x,this.y)
   }
   checkBorder() {
     let borderTouch = false;

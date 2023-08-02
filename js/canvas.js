@@ -26,29 +26,12 @@ class Canvas {
     
   }
   active(){
-    if(this.time%this.spawnObj == 0) this.spawnerObjects()
-    this.objectsActions();
+    if(this.time%this.spawnObj == 0) STORE.spawnerObjects(this.width,this.height)
+    STORE.active()
     STORE.mouseHoverObjects();
     this.time += 10;
-    console.log(this.time,this.spawnObj)
   }
-  spawnerObjects() {
-    let speed = 0.05;
-    let radius = getRandomInt(10, 50);
-    STORE.addObject({
-      x: getRandomInt(0, this.width - radius),
-      y: getRandomInt(0, this.height - radius),
-      xS: getRandomFloat(-speed, speed + 1),
-      yS: getRandomFloat(-speed, speed + 1),
-      r: radius,
-    });
-  }
-  objectsActions() {
-    const reverse = STORE.objects.map((_, index) => STORE.objects[STORE.objects.length - 1 - index]);
-    reverse.forEach((el) => {
-      el.action();
-    });
-  }
+
   resize() {
     this.updateSize();
   }

@@ -42,6 +42,7 @@
 <script src="js/object.js"></script>
 <script src="js/objects/square.js"></script>
 <script src="js/objects/circle.js"></script>
+<script src="js/items/grenade.js"></script>
 <script src="js/store.js"></script>
 <script src="js/listener.js"></script>
 
@@ -88,7 +89,7 @@
             value: 50,
         }),
     ]
-
+    STORE.activeItem = [new Grenade()]
 
     /* мой код */
     const market = document.querySelector('.market');
