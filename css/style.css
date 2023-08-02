@@ -89,6 +89,9 @@ canvas {
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
 }
+.panel .panel__button-market .market_active {
+  right: 0px;
+}
 .panel .panel__button-market:hover {
   background-color: rgb(179, 55, 207);
   -webkit-transition-duration: 0.2s;
