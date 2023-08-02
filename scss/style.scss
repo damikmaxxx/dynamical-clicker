@@ -14,9 +14,10 @@ a {
 /* переменные */
 
 $color-accent: rgb(179, 55, 207);
+$color-accent_Second:rgb(73, 130, 235) ;
 $color-help: rgb(38, 44, 80);
 $color-help_Second: rgb(27, 31, 60);
-$color-text_white: white;
+$color-text_white: white ;
 
 $font-medium: 18px;
 $font-small: 14px;
@@ -49,23 +50,23 @@ canvas {
 }
 
 .panel {
-    color: white;
+    color: $color-text_white;
     background-color: $color-help_Second;
     font-size: $font-small;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     
 
 
     .panel__info {
         display: flex;
-        align-items: center;
+        justify-content:center ;
+        width: 60vw;
 
         >div {
-            margin: 0 4vw 0 4vw;
-            width: 160px;
+            width: 240px;
             text-align: center;
         }
     }
@@ -76,7 +77,6 @@ canvas {
         font-size: $font-medium;
         width: 200px;
 
-        margin: 0 6vw 0 0;
         border: 2px solid $color-accent;
         background: transparent;
         color: $color-text_white;
@@ -84,34 +84,69 @@ canvas {
         transition-duration: 0.2s;
 
         cursor: pointer;
+    }
 
+    .panel__button-inventory{
+        height: 46px;
+        font-size: $font-medium;
+        width: 200px;
 
-        
-        .market {
-            position: fixed;
-            right: -400px;
-            top: 100px;
-        
-            width: 400px;
-            height: calc(100vh - 200px);
-            background-color: $color-help_Second;
-            border-left: 2px solid $color-accent;
-            /* opacity: 0.9; */
-        
-            transition-duration: 0.2s;
+        border: 2px solid $color-accent_Second;
+        background: transparent;
+        color: $color-text_white;
 
-        }
+        transition-duration: 0.2s;
 
-        .market_active{
-            right: 0px;
-        }
+        cursor: pointer;
+    }
+
+    .inventory{
+        position: fixed;
+        left: -400px;
+        top: 100px;
+    
+        width: 400px;
+        height: calc(100vh - 200px);
+        background-color: $color-help_Second;
+        border-right: 2px solid $color-accent_Second;
+        /* opacity: 0.9; */
+    
+        transition-duration: 0.2s;
+    }
+
+    .inventory_active{
+        left: 0px;
+    }
+
+    .market {
+        position: fixed;
+        right: -400px;
+        top: 100px;
+    
+        width: 400px;
+        height: calc(100vh - 200px);
+        background-color: $color-help_Second;
+        border-left: 2px solid $color-accent;
+        /* opacity: 0.9; */
+    
+        transition-duration: 0.2s;
+
+    }
+
+    .market_active{
+        right: 0px;
     }
 
     .panel__button-market:hover {
         background-color: $color-accent;
         transition-duration: 0.2s;
-
     }
+
+    .panel__button-inventory:hover {
+        background-color: $color-accent_Second;
+        transition-duration: 0.2s;
+    }
+
 
 
 }

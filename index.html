@@ -10,6 +10,11 @@
 
 <body>
     <div class="panel">
+        <button class="panel__button-inventory" onclick="inventory_opening()">
+            Инвентарь
+        </button>
+        <div class="inventory"></div>
+
         <div class="panel__info">
             <div class="panel__info-score">
                 очки:
@@ -19,17 +24,12 @@
                 сила удара:
                 <span id="damage">0</span>
             </div>
-            <div class="panel__info-choto">
-                скорость:
-                <span id="ну тут ты уже сам">1</span>
-                <!-- тут можно сдлеать скорость появление и прокачивать его -->
-            </div>
         </div>
 
-        <button class="panel__button-market" onclick="shop_opening()">
+        <button class="panel__button-market" onclick="market_opening()">
             Магазин
-            <div class="market"></div>
         </button>
+        <div class="market"></div>
     </div>
     <canvas id="canvas"></canvas>
     <div class="panel"></div>
@@ -91,20 +91,31 @@
     ]
     STORE.activeItem = [new Grenade()]
 
+
+
     /* мой код(Камиль) */
 
     const market = document.querySelector('.market');
+    const inventory = document.querySelector('.inventory');
     const panel__button_market = document.querySelector('.panel__button-market');
     let color_accent = 'rgb(179, 55, 207)';
 
 
     let ActiveMarket = false
 
-    const shop_opening = () => {
+    const market_opening = () => {
         ActiveMarket = !ActiveMarket;
         if (!ActiveMarket) market.setAttribute('class', 'market');
         else market.classList.add('market_active');
     };
+
+    let ActiveInventory = false
+
+    const inventory_opening = () => {
+        ActiveInventory = !ActiveInventory;
+        if (!ActiveInventory) inventory.setAttribute('class', 'inventory');
+        else inventory.classList.add('inventory_active');
+    }
 
 
 
