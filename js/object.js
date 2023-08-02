@@ -1,4 +1,5 @@
 class Object {
+  time = 0;
   constructor(obj) {
     this.id = obj?.id || STORE?.returnAvailableId();
     this.type = obj?.type || this.constructor.name;
@@ -10,9 +11,12 @@ class Object {
     this.hover = obj?.hover || 50;
     this.value = obj?.value || 50;
     this.isParticle = obj?.isParticle || false;
+    
+
   }
 
   action() {
+    this.time += 1;
     this.checkBorder();
     this.move();
     this.render();
@@ -45,6 +49,13 @@ class Object {
   move() {
     this.x += this.xS;
     this.y += this.yS;
+    if(this.isParticle) return;
+    this.moveTrail()
+  }
+  moveTrail(){
+    if(this.time%20 == 0)
+      STORE.addObject({ x: this.x - this.r*this.xS, y: this.y - this.r*this.yS, xS:-this.xS*0.5 * getRandomFloat(-this.xS * 0.1, this.xS * 0.1), yS:-this.yS*0.5 * getRandomFloat(-this.xS * 0.1, this.xS * 0.1), r:getRandomFloat(this.r*0.1, this.r*0.2), value:getRandomInt(3,7),isParticle:true,type:this.type });
+
   }
   renderText() {
     if(this.isParticle) return;
@@ -89,7 +100,7 @@ class Object {
     if(this.isParticle) return;
     let speed = 2;
     for (let i = 0; i < num; i++) {
-      STORE.addObject({ x: this.x, y: this.y, xS: getRandomFloat(-speed, speed + 1), yS:getRandomFloat(-speed, speed + 1), r:getRandomFloat(1, 10), value:getRandomInt(10,20),isParticle:true,type:this.type });
+      STORE.addObject({ x: mouse.x, y: mouse.y, xS: getRandomFloat(-speed, speed + 1), yS:getRandomFloat(-speed, speed + 1), r:getRandomFloat(this.r*0.05, this.r*0.3), value:getRandomInt(10,20),isParticle:true,type:this.type });
     }
 
   }

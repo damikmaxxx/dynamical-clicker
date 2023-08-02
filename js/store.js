@@ -9,11 +9,15 @@ let STORE = {
         speed: 100,
         value: 10,
       },
+      square: {
+        radius: 10,
+        speed: 100,
+        value: 10,
+      },
     },
   },
-  objects: [
-
-  ],
+  
+  objects: [],
   addPoint(p) {
     STORE.score += p;
     UPDATE_VIEW_INFO();
@@ -52,7 +56,6 @@ let STORE = {
     STORE.objects = STORE.objects.filter((el) => !(el.id == id));
   },
   returnAvailableId(){
-    console.log(this.lastID)
     let id = this.lastID + 1
     this.lastID++;
     return id;

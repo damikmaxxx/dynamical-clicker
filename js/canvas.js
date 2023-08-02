@@ -41,7 +41,8 @@ class Canvas {
     });
   }
   objectsActions() {
-    STORE.objects.forEach((el) => {
+    const reverse = STORE.objects.map((_, index) => STORE.objects[STORE.objects.length - 1 - index]);
+    reverse.forEach((el) => {
       el.action();
     });
   }
