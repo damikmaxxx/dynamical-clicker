@@ -96,8 +96,13 @@
     /* мой код(Камиль) */
 
     const market = document.querySelector('.market');
-    const inventory = document.querySelector('.inventory');
+    const market_active = document.querySelector('.market_active');
     const panel__button_market = document.querySelector('.panel__button-market');
+
+    const inventory = document.querySelector('.inventory');
+    const inventory_active = document.querySelector('.inventory_active');
+    const panel__button_inventory = document.querySelector('.panel__button-inventory');
+
     let color_accent = 'rgb(179, 55, 207)';
 
 
@@ -117,6 +122,21 @@
         else inventory.classList.add('inventory_active');
     }
 
+
+
+    document.addEventListener('click', (a) => {
+        const click_Market = a.composedPath().includes(market)
+        const clickButton_Market = a.composedPath().includes(panel__button_market)
+        if (!(click_Market || clickButton_Market)) {
+            market.setAttribute('class', 'market')
+        } else market.classList.add('market_active')
+
+        const click_inventory = a.composedPath().includes(inventory)
+        const clickButton_inventory = a.composedPath().includes(panel__button_inventory)
+        if (!(click_inventory || clickButton_inventory)) {
+            inventory.setAttribute('class', 'inventory')  /* тут */
+        } else inventory.classList.add('inventory_active')
+    })
 
 
 

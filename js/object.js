@@ -20,7 +20,6 @@ class Object {
     this.checkBorder();
     this.move();
     this.decreaseValue(0.1);
-    console.log(this.x,this.y)
   }
   checkBorder() {
     let borderTouch = false;

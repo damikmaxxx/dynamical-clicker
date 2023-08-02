@@ -39,7 +39,7 @@ canvas {
 }
 
 .panel {
-  color: white;
+  color: rgb(255, 255, 255);
   background-color: rgb(27, 31, 60);
   font-size: 14px;
   display: -webkit-box;
@@ -71,7 +71,7 @@ canvas {
   width: 200px;
   border: 2px solid rgb(179, 55, 207);
   background: transparent;
-  color: white;
+  color: rgb(255, 255, 255);
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
   cursor: pointer;
@@ -82,7 +82,7 @@ canvas {
   width: 200px;
   border: 2px solid rgb(73, 130, 235);
   background: transparent;
-  color: white;
+  color: rgb(255, 255, 255);
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
   cursor: pointer;
