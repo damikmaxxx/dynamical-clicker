@@ -1,34 +1,37 @@
 class Canvas {
+  time = 0;
   constructor(obj) {
     this.width = obj.width;
     this.height = obj.height;
+
   }
   start(info) {
     STORE.score = info?.score || 0;
     STORE.damage = info?.damage || 0;
+    this.spawnObj = info?.spawnObj  || 10000;
     UPDATE_VIEW_INFO();
     setInterval(() => {
       if (!ACTIVE_GAME) return;
-      this.update();
-      console.log("0.01sec");
-    }, 10);
+      this.updateRender();
+    }, 1000/60);
     setInterval(() => {
       if (!ACTIVE_GAME) return;
-      this.spawnerObjects();
-    }, info?.spawnObj || 10000);
+      this.active();
+      console.log("0.01sec");
+    }, 10);
   }
-  update() {
+  updateRender() {
     ctx.clearRect(0, 0, this.width, this.height);
-    this.borderCanvas();
+    STORE.renderObjects();
+    
+  }
+  active(){
+    if(this.time%this.spawnObj == 0) this.spawnerObjects()
     this.objectsActions();
     STORE.mouseHoverObjects();
+    this.time += 10;
+    console.log(this.time,this.spawnObj)
   }
-  borderCanvas() {
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = "rgba(0,0,0,1)";
-    ctx.strokeRect(0, 0, this.width, this.height);
-  }
-
   spawnerObjects() {
     let speed = 0.05;
     let radius = getRandomInt(10, 50);

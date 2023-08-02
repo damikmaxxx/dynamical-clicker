@@ -59,5 +59,11 @@ let STORE = {
     let id = this.lastID + 1
     this.lastID++;
     return id;
+  },
+  renderObjects(){
+    const reverse = STORE.objects.map((_, index) => STORE.objects[STORE.objects.length - 1 - index]);
+    reverse.forEach((el) => {
+      el.render();
+    });
   }
 };

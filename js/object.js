@@ -19,7 +19,6 @@ class Object {
     this.time += 1;
     this.checkBorder();
     this.move();
-    this.render();
     this.decreaseValue(0.1);
   }
   checkBorder() {
