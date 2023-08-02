@@ -101,6 +101,10 @@ canvas {
             transition-duration: 0.2s;
 
         }
+
+        .market_active{
+            right: 0px;
+        }
     }
 
     .panel__button-market:hover {
@@ -108,9 +112,6 @@ canvas {
         transition-duration: 0.2s;
 
     }
-
-
-    
 
 
 }

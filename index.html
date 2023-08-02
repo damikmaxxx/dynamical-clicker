@@ -91,14 +91,23 @@
     ]
     STORE.activeItem = [new Grenade()]
 
-    /* мой код */
+    /* мой код(Камиль) */
+
     const market = document.querySelector('.market');
-    const panel__button_market = document.querySelector('.panel__button-market')
-    let color_accent = 'rgb(179, 55, 207)'
+    const panel__button_market = document.querySelector('.panel__button-market');
+    let color_accent = 'rgb(179, 55, 207)';
+
+
+    let ActiveMarket = false
+
     const shop_opening = () => {
-        market.style.right = '0'
-        panel__button_market.style.background = color_accent;
-    }
+        ActiveMarket = !ActiveMarket;
+        if (!ActiveMarket) market.setAttribute('class', 'market');
+        else market.classList.add('market_active');
+    };
+
+
+
 
 </script>
 
