@@ -14,10 +14,10 @@ a {
 /* переменные */
 
 $color-accent: rgb(179, 55, 207);
-$color-accent_Second:rgb(73, 130, 235) ;
+$color-accent_Second: rgb(73, 130, 235);
 $color-help: rgb(38, 44, 80);
 $color-help_Second: rgb(27, 31, 60);
-$color-text_white: rgb(255, 255, 255) ;
+$color-text_white: rgb(255, 255, 255);
 
 $font-medium: 18px;
 $font-small: 14px;
@@ -49,12 +49,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 
 
     .panel__info {
         display: flex;
-        justify-content:center ;
+        justify-content: center;
         width: 60vw;
 
         >div {
@@ -78,7 +78,7 @@ body {
         cursor: pointer;
     }
 
-    .panel__button-inventory{
+    .panel__button-inventory {
         height: 46px;
         font-size: $font-medium;
         width: 200px;
@@ -92,21 +92,21 @@ body {
         cursor: pointer;
     }
 
-    .inventory{
+    .inventory {
         position: fixed;
         left: -400px;
         top: 100px;
-    
+
         width: 400px;
         height: calc(100vh - 200px);
         background-color: $color-help_Second;
         border-right: 2px solid $color-accent_Second;
         /* opacity: 0.9; */
-    
+
         transition-duration: 0.2s;
     }
 
-    .inventory_active{
+    .inventory_active {
         left: 0px;
     }
 
@@ -114,18 +114,18 @@ body {
         position: fixed;
         right: -400px;
         top: 100px;
-    
+
         width: 400px;
         height: calc(100vh - 200px);
         background-color: $color-help_Second;
         border-left: 2px solid $color-accent;
         /* opacity: 0.9; */
-    
+
         transition-duration: 0.2s;
 
     }
 
-    .market_active{
+    .market_active {
         right: 0px;
     }
 
@@ -141,21 +141,33 @@ body {
 }
 
 
-.panel-below{
+.panel-below {
     display: flex;
 
-    .panel-below__items{
+    .panel-below__items {
         display: flex;
         gap: 1vw;
 
-        .item{
-            width: 60px;
-            height: 60px;
-            border: 2px solid $color-accent_Second;
+
+        .item__block {
+            >div {
+                text-align: center;
+                margin: 4px 0 0 0;
+            }
+
+            .item {
+                width: 60px;
+                height: 60px;
+                border: 2px solid $color-accent_Second;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
 
-        .item:hover{
-            box-shadow:0  0 5px $color-accent_Second;
+        .item:hover {
+            box-shadow: 0 0 5px $color-accent_Second;
         }
     }
 }

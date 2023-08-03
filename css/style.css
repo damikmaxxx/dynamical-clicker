@@ -131,10 +131,23 @@ body {
   display: flex;
   gap: 1vw;
 }
-.panel-below .panel-below__items .item {
+.panel-below .panel-below__items .item__block > div {
+  text-align: center;
+  margin: 4px 0 0 0;
+}
+.panel-below .panel-below__items .item__block .item {
   width: 60px;
   height: 60px;
   border: 2px solid rgb(73, 130, 235);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .panel-below .panel-below__items .item:hover {
   -webkit-box-shadow: 0 0 5px rgb(73, 130, 235);
