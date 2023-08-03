@@ -34,9 +34,15 @@
     <canvas id="canvas"></canvas>
     <div class="panel panel-below">
         <div class="panel-below__items">
-            <div class="first-item item"></div>
+            <div class="first-item item">
+                Удар <br>
+                <span>∞</span>
+            </div>
             <div class="second-item item"></div>
-            <div class="third-item item"></div>
+            <div class="third-item item">
+                граната <br>
+                <span id="grenade">0</span>
+            </div>
         </div>
     </div>
 
@@ -63,7 +69,7 @@
 
     let mouse = { x: 0, y: 0 };
     const canvas = new Canvas({ width: CANVAS.width, height: CANVAS.height });
-    canvas.start({ spawnObj: 1000, damage: 20, score: 0 });
+    canvas.start({ spawnObj: 400, damage: 20, score: 0 });
 
     STORE.objects = [
         new Circle({

@@ -1,6 +1,5 @@
 CANVAS.addEventListener("mousedown", (e) => {
   if (e.button == 0) {
-    let objLen = STORE.objects.length;
 
     let clickObj = STORE.objects.find((el) => {
       return (

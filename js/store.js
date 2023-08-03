@@ -33,7 +33,7 @@ let STORE = {
 
   addPoint(p) {
     this.score += p;
-    UPDATE_VIEW_INFO();
+    
   },
   addObject(obj) {
     obj.id = this.returnAvailableId();
@@ -107,13 +107,14 @@ let STORE = {
   },
   spawnerObjects(width, height) {
     let objNum = getRandomInt(1, 3);
-    let speed = 0.05;
+    let speed = 1;
     let radius = getRandomInt(10, 50);
+    console.log(this.sum)
     this.addObject({
       x: getRandomInt(0, width - radius),
       y: getRandomInt(0, height - radius),
-      xS: getRandomFloat(-this.properties.objects, speed + 1),
-      yS: getRandomFloat(-speed, speed + 1),
+      xS: getRandomFloat(-speed, speed),
+      yS: getRandomFloat(-speed, speed),
       r: radius,
       type: objNum == 1 ? "Square" : "Circle",
     });

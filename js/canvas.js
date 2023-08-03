@@ -9,10 +9,10 @@ class Canvas {
     STORE.score = info?.score || 0;
     STORE.damage = info?.damage || 0;
     this.spawnObj = info?.spawnObj  || 10000;
-    UPDATE_VIEW_INFO();
     setInterval(() => {
       if (!ACTIVE_GAME) return;
       this.updateRender();
+      UPDATE_VIEW_INFO();
     }, 1000/60);
     setInterval(() => {
       if (!ACTIVE_GAME) return;
