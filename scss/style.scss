@@ -146,7 +146,24 @@ canvas {
         background-color: $color-accent_Second;
         transition-duration: 0.2s;
     }
+}
 
 
+.panel-below{
+    display: flex;
 
+    .panel-below__items{
+        display: flex;
+        gap: 1vw;
+
+        .item{
+            width: 60px;
+            height: 60px;
+            border: 2px solid $color-accent_Second;
+        }
+
+        .item:hover{
+            box-shadow:0  0 5px $color-accent_Second;
+        }
+    }
 }
