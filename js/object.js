@@ -55,7 +55,7 @@ class Object {
   }
   moveTrail() {
     if (this.isParticle) return;
-    if (this.time % 20 == 0)
+    if (this.time % 30 == 0)
       STORE.addObject({
         x: this.x - this.r * this.xS,
         y: this.y - this.r * this.yS,
@@ -129,6 +129,10 @@ class Object {
         value: getRandomInt(10, 20),
         isParticle: true,
         type: this.type,
+        color:
+        "rgba(255,255,255," +
+        getRandomFloat(0.8, 1) +
+        ")",
       });
     }
   }

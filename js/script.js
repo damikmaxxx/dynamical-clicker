@@ -12,7 +12,7 @@ let height = (CANVAS.height = innerHeight - 200);
 
 function UPDATE_VIEW_INFO() {
   document.getElementById("score").textContent = Math.round(STORE.score);
-  document.getElementById("damage").textContent = STORE.damage;
+  document.getElementById("damage").textContent = STORE.weapon[STORE.activeWeapon].damage;
   document.getElementById("grenade").textContent = STORE.items.grenade;
 }
 

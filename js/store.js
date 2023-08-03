@@ -1,8 +1,8 @@
 let STORE = {
+  time: 0,
   activeCursor: "grenade",
   lastID: 0,
   score: 0,
-  damage: 15,
   properties: {
     objects: {
       circle: {
@@ -25,6 +25,14 @@ let STORE = {
       },
     },
   },
+  weapon: {
+    hand: {
+      recharge: false,
+      cooldown: 0.2,
+      damage: 20,
+    },
+  },
+  activeWeapon: "hand",
   items: {
     grenade: 50,
   },
@@ -33,7 +41,6 @@ let STORE = {
 
   addPoint(p) {
     this.score += p;
-    
   },
   addObject(obj) {
     obj.id = this.returnAvailableId();
@@ -47,6 +54,38 @@ let STORE = {
       default:
         console.log("Такого типа не существует");
     }
+  },
+  activateWeapon() {
+    if (this.weapon[this.activeWeapon].recharge) return;
+
+
+    switch (this.activeWeapon) {
+      case "hand":
+        let clickObj = this.objects.find((el) => {
+          return (
+            el.x + el.r > mouse.x &&
+            el.x - el.r < mouse.x &&
+            el.y + el.r > mouse.y &&
+            el.y - el.r < mouse.y
+          );
+        });
+        if (clickObj && !this.weapon[this.activeWeapon].recharge)
+          this.addPoint(
+            clickObj.getDamage(this.weapon[this.activeWeapon].damage)
+          );
+
+
+        break;
+      default:
+        console.log("нет такого оружия");
+    }
+
+    let activateWeapon = this.weapon[this.activeWeapon];
+    this.weapon[this.activeWeapon].recharge = true;
+    setTimeout(() => {
+      activateWeapon.recharge = false;
+    }, this.weapon[this.activeWeapon].cooldown * 1000);
+
   },
   activateItem(info) {
     if (info.type == "grenade" && this.items.grenade > 0) {
@@ -109,7 +148,7 @@ let STORE = {
     let objNum = getRandomInt(1, 3);
     let speed = 1;
     let radius = getRandomInt(10, 50);
-    console.log(this.sum)
+
     this.addObject({
       x: getRandomInt(0, width - radius),
       y: getRandomInt(0, height - radius),
@@ -119,11 +158,15 @@ let STORE = {
       type: objNum == 1 ? "Square" : "Circle",
     });
   },
-  checkTouch(x, y, r,id) {
-      return this.objects.filter((el) => {
-        return (el.id != id) && 
-          (el.x + el.r > x - r && el.y - el.r < y + r) &&
-          (el.x - el.r < x + r && el.y + el.r > y - r)
-      })
+  checkTouch(x, y, r, id) {
+    return this.objects.filter((el) => {
+      return (
+        el.id != id &&
+        el.x + el.r > x - r &&
+        el.y - el.r < y + r &&
+        el.x - el.r < x + r &&
+        el.y + el.r > y - r
+      );
+    });
   },
 };

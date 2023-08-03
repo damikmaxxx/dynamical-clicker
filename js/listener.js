@@ -1,16 +1,6 @@
 CANVAS.addEventListener("mousedown", (e) => {
   if (e.button == 0) {
-
-    let clickObj = STORE.objects.find((el) => {
-      return (
-        el.x + el.r > e.offsetX &&
-        el.x - el.r < e.offsetX &&
-        el.y + el.r > e.offsetY &&
-        el.y - el.r < e.offsetY
-      );
-    });
-    if (!clickObj) return;
-    STORE.addPoint(clickObj.getDamage(STORE.damage));
+    STORE.activateWeapon()
   }
   if (e.button == 2) {
     STORE.activateItem({ type: "grenade", x: mouse.x, y: mouse.y });
