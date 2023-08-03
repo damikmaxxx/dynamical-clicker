@@ -17,7 +17,6 @@ class Canvas {
     setInterval(() => {
       if (!ACTIVE_GAME) return;
       this.active();
-      console.log("0.01sec");
     }, 10);
   }
   updateRender() {

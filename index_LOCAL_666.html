@@ -10,11 +10,6 @@
 
 <body>
     <div class="panel">
-        <button class="panel__button-inventory">
-            Инвентарь
-        </button>
-        <div class="inventory"></div>
-
         <div class="panel__info">
             <div class="panel__info-score">
                 очки:
@@ -24,21 +19,20 @@
                 сила удара:
                 <span id="damage">0</span>
             </div>
+            <div class="panel__info-choto">
+                скорость:
+                <span id="ну тут ты уже сам">1</span>
+                <!-- тут можно сдлеать скорость появление и прокачивать его -->
+            </div>
         </div>
 
-        <button class="panel__button-market">
+        <button class="panel__button-market" onclick="shop_opening()">
             Магазин
+            <div class="market"></div>
         </button>
-        <div class="market"></div>
     </div>
     <canvas id="canvas"></canvas>
-    <div class="panel panel-below">
-        <div class="panel-below__items">
-            <div class="first-item item"></div>
-            <div class="second-item item"></div>
-            <div class="third-item item"></div>
-        </div>
-    </div>
+    <div class="panel"></div>
 
 </body>
 <script>
@@ -95,68 +89,15 @@
             value: 500,
         }),
     ]
-<<<<<<< HEAD
-=======
-    STORE.activeItem = [new Grenade()]
-
-
-
-    /* мой код(Камиль) */
->>>>>>> 31532a56c9e3044c66588dc9d125d77414554270
 
     /* мой код */
     const market = document.querySelector('.market');
-<<<<<<< HEAD
     const panel__button_market = document.querySelector('.panel__button-market')
     let color_accent = 'rgb(179, 55, 207)'
     const shop_opening = () => {
         market.style.right = '0'
         panel__button_market.style.background = color_accent;
     }
-=======
-    const market_active = document.querySelector('.market_active');
-    const panel__button_market = document.querySelector('.panel__button-market');
-
-    const inventory = document.querySelector('.inventory');
-    const inventory_active = document.querySelector('.inventory_active');
-    const panel__button_inventory = document.querySelector('.panel__button-inventory');
-
-    let color_accent = 'rgb(179, 55, 207)';
-
-
-
-    let ActiveMarket = false
-    let ActiveInventory = false
-
-    document.addEventListener('click', (a) => {
-
-        const click_Market = a.composedPath().includes(market)
-        const clickButton_Market = a.composedPath().includes(panel__button_market)
-
-        if ((ActiveMarket && !(click_Market || clickButton_Market)) || ActiveMarket && clickButton_Market) {
-            market.setAttribute('class', 'market')
-            ActiveMarket = !ActiveMarket
-        } else if (!ActiveMarket && clickButton_Market) {
-            market.classList.add('market_active')
-            ActiveMarket = !ActiveMarket
-        }
-
-
-        const click_Inventory = a.composedPath().includes(inventory)
-        const clickButton_Inventory = a.composedPath().includes(panel__button_inventory)
-
-        if ((ActiveInventory && !(click_Inventory || clickButton_Inventory)) || ActiveInventory && clickButton_Inventory) {
-            inventory.setAttribute('class', 'inventory')
-            ActiveInventory = !ActiveInventory
-        } else if (!ActiveInventory && clickButton_Inventory) {
-            inventory.classList.add('inventory_active')
-            ActiveInventory = !ActiveInventory
-        }
-    })
-
-
-
->>>>>>> 31532a56c9e3044c66588dc9d125d77414554270
 
 </script>
 

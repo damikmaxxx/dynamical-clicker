@@ -5,8 +5,8 @@ class Circle extends Object {
 
   render() {
     ctx.beginPath();
-    ctx.strokeStyle = "rgba(255,248,220)";
-    ctx.fillStyle = "rgba(255,248,220)";
+    ctx.strokeStyle = "rgb(255, 255, 255)";
+    ctx.fillStyle = "rgb(255, 255, 255)";
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
     ctx.fill();
     ctx.stroke();

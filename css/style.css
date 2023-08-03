@@ -39,7 +39,7 @@ canvas {
 }
 
 .panel {
-  color: white;
+  color: rgb(255, 255, 255);
   background-color: rgb(27, 31, 60);
   font-size: 14px;
   display: -webkit-box;
@@ -48,36 +48,61 @@ canvas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .panel .panel__info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 60vw;
 }
 .panel .panel__info > div {
-  margin: 0 4vw 0 4vw;
-  width: 160px;
+  width: 240px;
   text-align: center;
 }
 .panel .panel__button-market {
   height: 46px;
   font-size: 18px;
   width: 200px;
-  margin: 0 6vw 0 0;
   border: 2px solid rgb(179, 55, 207);
   background: transparent;
-  color: white;
+  color: rgb(255, 255, 255);
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
   cursor: pointer;
 }
-.panel .panel__button-market .market {
+.panel .panel__button-inventory {
+  height: 46px;
+  font-size: 18px;
+  width: 200px;
+  border: 2px solid rgb(73, 130, 235);
+  background: transparent;
+  color: rgb(255, 255, 255);
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  cursor: pointer;
+}
+.panel .inventory {
+  position: fixed;
+  left: -400px;
+  top: 100px;
+  width: 400px;
+  height: calc(100vh - 200px);
+  background-color: rgb(27, 31, 60);
+  border-right: 2px solid rgb(73, 130, 235);
+  /* opacity: 0.9; */
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+.panel .inventory_active {
+  left: 0px;
+}
+.panel .market {
   position: fixed;
   right: -400px;
   top: 100px;
@@ -89,11 +114,37 @@ canvas {
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
 }
-.panel .panel__button-market .market_active {
+.panel .market_active {
   right: 0px;
 }
 .panel .panel__button-market:hover {
   background-color: rgb(179, 55, 207);
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
+}
+.panel .panel__button-inventory:hover {
+  background-color: rgb(73, 130, 235);
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+.panel-below {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.panel-below .panel-below__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1vw;
+}
+.panel-below .panel-below__items .item {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgb(73, 130, 235);
+}
+.panel-below .panel-below__items .item:hover {
+  -webkit-box-shadow: 0 0 5px rgb(73, 130, 235);
+          box-shadow: 0 0 5px rgb(73, 130, 235);
 }
