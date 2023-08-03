@@ -20,7 +20,6 @@ class Grenade {
   }
   renderItem(){
     this.use = true;
-    console.log("Asda")
     STORE.addObject({
         x: this.x,
         y: this.y,
@@ -42,7 +41,10 @@ class Grenade {
         r: getRandomFloat(2, 10),
         value: getRandomInt(this.range/10, this.range + 1),
         isParticle: true,
+        isProjectile: true,
+        damage:this.damage,
         type: "Circle",
+
       });
     }
     STORE.deleteActiveItem(this.id);

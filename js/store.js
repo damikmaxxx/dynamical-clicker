@@ -18,39 +18,38 @@ let STORE = {
     },
     items: {
       grenade: {
-        speed:15,
+        speed: 15,
         fragments: 30,
-        damage: 5,
-        range:2,
+        damage: 10,
+        range: 2,
       },
     },
   },
   items: {
-    grenade: 5,
+    grenade: 50,
   },
   activeItem: [],
   objects: [],
 
   addPoint(p) {
-    STORE.score += p;
+    this.score += p;
     UPDATE_VIEW_INFO();
   },
   addObject(obj) {
     obj.id = this.returnAvailableId();
     switch (obj.type) {
       case "Circle":
-        STORE.objects.push(new Circle(obj));
+        this.objects.push(new Circle(obj));
         break;
       case "Square":
-        STORE.objects.push(new Square(obj));
+        this.objects.push(new Square(obj));
         break;
       default:
         console.log("Такого типа не существует");
     }
   },
   activateItem(info) {
-    console.log(info)
-    if (info.type == "grenade" && STORE.items.grenade > 0) {
+    if (info.type == "grenade" && this.items.grenade > 0) {
       STORE.activeItem.push(
         new Grenade({
           x: info.x,
@@ -61,22 +60,22 @@ let STORE = {
           range: info.range || this.properties.items.grenade.range,
         })
       );
-      STORE.items.grenade--;
+      this.items.grenade--;
     }
   },
   active() {
-    const reverse = STORE.objects.map(
-      (_, index) => STORE.objects[STORE.objects.length - 1 - index]
+    const reverse = this.objects.map(
+      (_, index) => this.objects[this.objects.length - 1 - index]
     );
     reverse.forEach((el) => {
       el.action();
     });
-    STORE.activeItem.forEach((el) => {
+    this.activeItem.forEach((el) => {
       el.action();
     });
   },
   mouseHoverObjects() {
-    STORE.objects.forEach((el) => {
+    this.objects.forEach((el) => {
       el.hover =
         el.x + el.r > mouse.x &&
         el.x - el.r < mouse.x &&
@@ -88,10 +87,10 @@ let STORE = {
   },
 
   deleteObject(id) {
-    STORE.objects = STORE.objects.filter((el) => !(el.id == id));
+    this.objects = this.objects.filter((el) => !(el.id == id));
   },
   deleteActiveItem(id) {
-    STORE.activeItem = STORE.activeItem.filter((el) => !(el.id == id));
+    this.activeItem = this.activeItem.filter((el) => !(el.id == id));
   },
   returnAvailableId() {
     let id = this.lastID + 1;
@@ -99,8 +98,8 @@ let STORE = {
     return id;
   },
   renderObjects() {
-    const reverse = STORE.objects.map(
-      (_, index) => STORE.objects[STORE.objects.length - 1 - index]
+    const reverse = this.objects.map(
+      (_, index) => this.objects[this.objects.length - 1 - index]
     );
     reverse.forEach((el) => {
       el.render();
@@ -110,7 +109,7 @@ let STORE = {
     let objNum = getRandomInt(1, 3);
     let speed = 0.05;
     let radius = getRandomInt(10, 50);
-    STORE.addObject({
+    this.addObject({
       x: getRandomInt(0, width - radius),
       y: getRandomInt(0, height - radius),
       xS: getRandomFloat(-this.properties.objects, speed + 1),
@@ -118,5 +117,12 @@ let STORE = {
       r: radius,
       type: objNum == 1 ? "Square" : "Circle",
     });
+  },
+  checkTouch(x, y, r,id) {
+      return this.objects.filter((el) => {
+        return (el.id != id) && 
+          (el.x + el.r > x - r && el.y - el.r < y + r) &&
+          (el.x - el.r < x + r && el.y + el.r > y - r)
+      })
   },
 };

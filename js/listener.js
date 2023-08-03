@@ -1,6 +1,4 @@
 CANVAS.addEventListener("mousedown", (e) => {
-  e.preventDefault(); //сначала отменяем стандартное поведение
-  console.log(e.button)
   if (e.button == 0) {
     let objLen = STORE.objects.length;
 

@@ -11,8 +11,8 @@ class Object {
     this.hover = obj?.hover || 50;
     this.value = obj?.value || 50;
     this.isParticle = obj?.isParticle || false;
-    
-
+    this.isProjectile  = obj?.isProjectile || false;
+    this.damage = obj?.damage || 0;
   }
 
   action() {
@@ -20,7 +20,6 @@ class Object {
     this.checkBorder();
     this.move();
     this.decreaseValue(0.1);
-    console.log(this.x,this.y)
   }
   checkBorder() {
     let borderTouch = false;
@@ -40,8 +39,9 @@ class Object {
       this.yS = Math.abs(this.yS);
       borderTouch = true;
     }
-
+    
     if (borderTouch) {
+      if(this.isProjectile)  this.deleteFromStore()
       this.xS += getRandomFloat(-this.xS * 0.1, this.xS * 0.1);
       this.yS += getRandomFloat(-this.yS * 0.1, this.yS * 0.1);
     }
@@ -49,13 +49,26 @@ class Object {
   move() {
     this.x += this.xS;
     this.y += this.yS;
-    if(this.isParticle) return;
+    this.checkTouch();
     this.moveTrail()
   }
   moveTrail(){
+    if(this.isParticle) return;
     if(this.time%20 == 0)
       STORE.addObject({ x: this.x - this.r*this.xS, y: this.y - this.r*this.yS, xS:-this.xS*0.5 * getRandomFloat(-this.xS * 0.1, this.xS * 0.1), yS:-this.yS*0.5 * getRandomFloat(-this.xS * 0.1, this.xS * 0.1), r:getRandomFloat(this.r*0.1, this.r*0.2), value:getRandomInt(3,7),isParticle:true,type:this.type });
 
+  }
+  checkTouch(){
+    if(!this.isProjectile) return;
+    STORE.checkTouch(this.x,this.y,this.r,this.id).forEach((el) => {
+      if(!el.isParticle){
+        el.decreaseValue(this.damage)
+        console.log(el,this.damage)
+        this.deleteFromStore();
+        return
+      } 
+    })
+    
   }
   renderText() {
     if(this.isParticle) return;

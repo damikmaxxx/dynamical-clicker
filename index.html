@@ -86,28 +86,18 @@
             yS: 1,
             r: 30,
             hover: false,
-            value: 50,
+            value: 500,
         }),
     ]
-    STORE.activeItem = [new Grenade()]
 
-    /* мой код(Камиль) */
-
+    /* мой код */
     const market = document.querySelector('.market');
-    const panel__button_market = document.querySelector('.panel__button-market');
-    let color_accent = 'rgb(179, 55, 207)';
-
-
-    let ActiveMarket = false
-
+    const panel__button_market = document.querySelector('.panel__button-market')
+    let color_accent = 'rgb(179, 55, 207)'
     const shop_opening = () => {
-        ActiveMarket = !ActiveMarket;
-        if (!ActiveMarket) market.setAttribute('class', 'market');
-        else market.classList.add('market_active');
-    };
-
-
-
+        market.style.right = '0'
+        panel__button_market.style.background = color_accent;
+    }
 
 </script>
 
