@@ -10,7 +10,7 @@
 
 <body>
     <div class="panel">
-        <button class="panel__button-inventory" onclick="inventory_opening()">
+        <button class="panel__button-inventory">
             Инвентарь
         </button>
         <div class="inventory"></div>
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <button class="panel__button-market" onclick="market_opening()">
+        <button class="panel__button-market">
             Магазин
         </button>
         <div class="market"></div>
@@ -106,37 +106,36 @@
     let color_accent = 'rgb(179, 55, 207)';
 
 
+
     let ActiveMarket = false
-
-    const market_opening = () => {
-        ActiveMarket = !ActiveMarket;
-        if (!ActiveMarket) market.setAttribute('class', 'market');
-        else market.classList.add('market_active');
-    };
-
     let ActiveInventory = false
 
-    const inventory_opening = () => {
-        ActiveInventory = !ActiveInventory;
-        if (!ActiveInventory) inventory.setAttribute('class', 'inventory');
-        else inventory.classList.add('inventory_active');
-    }
-
-
-
     document.addEventListener('click', (a) => {
+
         const click_Market = a.composedPath().includes(market)
         const clickButton_Market = a.composedPath().includes(panel__button_market)
-        if (!(click_Market || clickButton_Market)) {
-            market.setAttribute('class', 'market')
-        } else market.classList.add('market_active')
 
-        const click_inventory = a.composedPath().includes(inventory)
-        const clickButton_inventory = a.composedPath().includes(panel__button_inventory)
-        if (!(click_inventory || clickButton_inventory)) {
-            inventory.setAttribute('class', 'inventory')  /* тут */
-        } else inventory.classList.add('inventory_active')
+        if ((ActiveMarket && !(click_Market || clickButton_Market)) || ActiveMarket && clickButton_Market) {
+            market.setAttribute('class', 'market')
+            ActiveMarket = !ActiveMarket
+        } else if (!ActiveMarket && clickButton_Market) {
+            market.classList.add('market_active')
+            ActiveMarket = !ActiveMarket
+        }
+
+
+        const click_Inventory = a.composedPath().includes(inventory)
+        const clickButton_Inventory = a.composedPath().includes(panel__button_inventory)
+
+        if ((ActiveInventory && !(click_Inventory || clickButton_Inventory)) || ActiveInventory && clickButton_Inventory) {
+            inventory.setAttribute('class', 'inventory')
+            ActiveInventory = !ActiveInventory
+        } else if (!ActiveInventory && clickButton_Inventory) {
+            inventory.classList.add('inventory_active')
+            ActiveInventory = !ActiveInventory
+        }
     })
+
 
 
 
