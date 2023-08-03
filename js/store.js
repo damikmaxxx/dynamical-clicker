@@ -18,6 +18,7 @@ let STORE = {
     },
     items: {
       grenade: {
+        level:1,
         speed: 15,
         fragments: 30,
         damage: 10,
@@ -27,6 +28,7 @@ let STORE = {
   },
   weapon: {
     hand: {
+      level:1,
       recharge: false,
       cooldown: 0.2,
       damage: 20,
@@ -169,4 +171,17 @@ let STORE = {
       );
     });
   },
+  upgrade(type,item){
+    switch(type){
+      case "weapon":
+        let lev = ++STORE.weapon[item].level;
+
+        console.log(STORE.weapon[item])
+        STORE.weapon[item] = UPGRADES.weapon.hand[STORE.weapon[item].level - 1] 
+        STORE.weapon[item].level = lev
+        console.log(STORE.weapon[item].level)
+    }
+  }
 };
+
+

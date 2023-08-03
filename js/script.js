@@ -14,6 +14,7 @@ function UPDATE_VIEW_INFO() {
   document.getElementById("score").textContent = Math.round(STORE.score);
   document.getElementById("damage").textContent = STORE.weapon[STORE.activeWeapon].damage;
   document.getElementById("grenade").textContent = STORE.items.grenade;
+  document.getElementById("hand_level").textContent = STORE.weapon.hand.level;
 }
 
 function getRandomInt(min, max) {
