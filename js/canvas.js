@@ -21,6 +21,8 @@ class Canvas {
   }
   updateRender() {
     ctx.clearRect(0, 0, this.width, this.height);
+    // ctx.fillStyle = "rgb(38, 44, 80)";
+    // ctx.fillRect(0, 0, this.width, this.height);
     STORE.renderObjects();
     
   }

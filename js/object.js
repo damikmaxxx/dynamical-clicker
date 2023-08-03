@@ -13,6 +13,7 @@ class Object {
     this.isParticle = obj?.isParticle || false;
     this.isProjectile  = obj?.isProjectile || false;
     this.damage = obj?.damage || 0;
+    this.color = obj?.color || "rgba(255,255,255)";
   }
 
   action() {
@@ -55,15 +56,14 @@ class Object {
   moveTrail(){
     if(this.isParticle) return;
     if(this.time%20 == 0)
-      STORE.addObject({ x: this.x - this.r*this.xS, y: this.y - this.r*this.yS, xS:-this.xS*0.5 * getRandomFloat(-this.xS * 0.1, this.xS * 0.1), yS:-this.yS*0.5 * getRandomFloat(-this.xS * 0.1, this.xS * 0.1), r:getRandomFloat(this.r*0.1, this.r*0.2), value:getRandomInt(3,7),isParticle:true,type:this.type });
+      STORE.addObject({ x: this.x - this.r*this.xS, y: this.y - this.r*this.yS, xS:-this.xS*0.5 * getRandomFloat(-this.xS * 0.1, this.xS * 0.1), yS:-this.yS*0.5 * getRandomFloat(-this.xS * 0.1, this.xS * 0.1), r:getRandomFloat(this.r*0.1, this.r*0.2), value:getRandomInt(3,7),isParticle:true,type:this.type, color:"rgba(255,255,255,0.5)" });
 
   }
   checkTouch(){
     if(!this.isProjectile) return;
     STORE.checkTouch(this.x,this.y,this.r,this.id).forEach((el) => {
       if(!el.isParticle){
-        el.decreaseValue(this.damage)
-        console.log(el,this.damage)
+        STORE.addPoint(el.getDamage(this.damage,this.x,this.y))
         this.deleteFromStore();
         return
       } 
@@ -91,17 +91,15 @@ class Object {
   deleteFromStore(){
     STORE.deleteObject(this.id)
   }
-  getDamage(damage){
+  getDamage(damage,xAnim,yAnim){
     let points= 0;
     if(this.isParticle) return 0;
-
+    this.getAnimDamage(damage,xAnim,yAnim)
     if (this.value - damage <= 0){
-      this.getAnimDamage(damage)
       points = this.value;
       this.deleteFromStore();
     } 
     else{
-      this.getAnimDamage(damage)
       this.decreaseValue(damage)
       points = damage;
     }
@@ -109,11 +107,12 @@ class Object {
 
     return points;
   }
-  getAnimDamage(num) {
+  getAnimDamage(num,xAnim =  mouse.x,yAnim =  mouse.y) {
+
     if(this.isParticle) return;
     let speed = 2;
     for (let i = 0; i < num; i++) {
-      STORE.addObject({ x: mouse.x, y: mouse.y, xS: getRandomFloat(-speed, speed + 1), yS:getRandomFloat(-speed, speed + 1), r:getRandomFloat(this.r*0.05, this.r*0.3), value:getRandomInt(10,20),isParticle:true,type:this.type });
+      STORE.addObject({ x: xAnim, y: yAnim, xS: getRandomFloat(-speed, speed + 1), yS:getRandomFloat(-speed, speed + 1), r:getRandomFloat(this.r*0.05, this.r*0.3), value:getRandomInt(10,20),isParticle:true,type:this.type });
     }
 
   }

@@ -5,11 +5,10 @@ class Circle extends Object {
 
   render() {
     ctx.beginPath();
-    ctx.strokeStyle = "rgb(255, 255, 255)";
-    ctx.fillStyle = "rgb(255, 255, 255)";
+    ctx.strokeStyle = this.color;
+    ctx.fillStyle = this.color;
     ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
     ctx.fill();
-    ctx.stroke();
     if (this.hover && !this.isParticle) {
       ctx.beginPath();
       ctx.lineWidth = 2;

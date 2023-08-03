@@ -9,8 +9,8 @@ class Square extends Object {
     ctx.translate(this.x, this.y);
     ctx.rotate(inRad(this.rotate));
 
-    ctx.strokeStyle = "rgb(255, 255, 255)";
-    ctx.fillStyle = "rgb(255, 255, 255)";
+    ctx.strokeStyle = this.color;
+    ctx.fillStyle = this.color;
     ctx.fillRect(-this.r, -this.r, this.r * 2, this.r * 2);
 
     if (this.hover && !this.isParticle) {

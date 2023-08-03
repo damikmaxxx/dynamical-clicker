@@ -26,16 +26,8 @@ body {
   font-size: 18px;
 }
 
-header,
-footer,
-canvas {
-  /* border:1px solid black; */
-}
-
 #canvas {
   height: 100%;
-  /* width:100%;  */
-  /* border:1px solid black;  */
 }
 
 .panel {
