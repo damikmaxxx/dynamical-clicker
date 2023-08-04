@@ -18,7 +18,7 @@ let STORE = {
     },
     items: {
       grenade: {
-        level:1,
+        level: 1,
         speed: 15,
         fragments: 30,
         damage: 10,
@@ -28,7 +28,7 @@ let STORE = {
   },
   weapon: {
     hand: {
-      level:1,
+      level: 1,
       recharge: false,
       cooldown: 0.2,
       damage: 20,
@@ -53,13 +53,15 @@ let STORE = {
       case "Square":
         this.objects.push(new Square(obj));
         break;
+      case "Triangle":
+        this.objects.push(new Triangle(obj));
+        break;
       default:
         console.log("Такого типа не существует");
     }
   },
   activateWeapon() {
     if (this.weapon[this.activeWeapon].recharge) return;
-
 
     switch (this.activeWeapon) {
       case "hand":
@@ -76,7 +78,6 @@ let STORE = {
             clickObj.getDamage(this.weapon[this.activeWeapon].damage)
           );
 
-
         break;
       default:
         console.log("нет такого оружия");
@@ -87,7 +88,6 @@ let STORE = {
     setTimeout(() => {
       activateWeapon.recharge = false;
     }, this.weapon[this.activeWeapon].cooldown * 1000);
-
   },
   activateItem(info) {
     if (info.type == "grenade" && this.items.grenade > 0) {
@@ -147,17 +147,28 @@ let STORE = {
     });
   },
   spawnerObjects(width, height) {
-    let objNum = getRandomInt(1, 3);
     let speed = 1;
     let radius = getRandomInt(10, 50);
-
+    let objNum = getRandomInt(1, 4);
+    let objType = 0;
+    switch (objNum) {
+      case 1:
+        objType = "Circle";
+        break;
+      case 2:
+        objType = "Square";
+        break;
+      case 3:
+        objType = "Triangle";
+        break;
+    }
     this.addObject({
       x: getRandomInt(0, width - radius),
       y: getRandomInt(0, height - radius),
       xS: getRandomFloat(-speed, speed),
       yS: getRandomFloat(-speed, speed),
       r: radius,
-      type: objNum == 1 ? "Square" : "Circle",
+      type: objType,
     });
   },
   checkTouch(x, y, r, id) {
@@ -171,17 +182,15 @@ let STORE = {
       );
     });
   },
-  upgrade(type,item){
-    switch(type){
+  upgrade(type, item) {
+    switch (type) {
       case "weapon":
+        if (STORE.weapon[item].level >= UPGRADES.weapon.hand.length) return;
         let lev = ++STORE.weapon[item].level;
 
-        console.log(STORE.weapon[item])
-        STORE.weapon[item] = UPGRADES.weapon.hand[STORE.weapon[item].level - 1] 
-        STORE.weapon[item].level = lev
-        console.log(STORE.weapon[item].level)
+        STORE.weapon[item] = UPGRADES.weapon.hand[STORE.weapon[item].level - 1];
+        STORE.weapon[item].level = lev;
+        break;
     }
-  }
+  },
 };
-
-

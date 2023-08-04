@@ -63,16 +63,23 @@
 
 </script>
 <script src="js/script.js"></script>
+
+<!-- список уровней прокачки -->
 <script src="js/upgrades.js"></script>
-<script src="js/object.js"></script>
+ <!-- фигуры -->
+ <script src="js/object.js"></script>
+ <script src="js/objects/circle.js"></script>
 <script src="js/objects/square.js"></script>
-<script src="js/objects/circle.js"></script>
+<script src="js/objects/triangle.js "></script>
+<!-- предметы -->
 <script src="js/items/grenade.js"></script>
+<!-- хранение всех данных -->
 <script src="js/store.js"></script>
+<!-- слушатель событий  -->
 <script src="js/listener.js"></script>
-
-
+<!-- работа с канвасом -->
 <script src="js/canvas.js"></script>
+<!-- работа с интерфейсом  -->
 <script src="js/interface.js"></script>
 <script>
     let ACTIVE_GAME = true;
@@ -104,7 +111,7 @@
             value: 30,
             isParticle: false,
         }),
-        new Square({
+        new Triangle({
             x: 500,
             y: 200,
             xS: 1,
