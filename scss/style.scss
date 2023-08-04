@@ -20,7 +20,8 @@ $color-help_Second: rgb(27, 31, 60);
 $color-text_white: rgb(255, 255, 255);
 
 $font-medium: 18px;
-$font-small: 14px;
+$font-small: 15px;
+$font-verySmall: 11px;
 
 /* код */
 
@@ -112,10 +113,10 @@ body {
 
     .market {
         position: fixed;
-        right: -400px;
+        right: -500px;
         top: 100px;
 
-        width: 400px;
+        width: 500px;
         height: calc(100vh - 200px);
         background-color: $color-help_Second;
         border-left: 2px solid $color-accent;
@@ -123,6 +124,92 @@ body {
 
         transition-duration: 0.2s;
 
+
+        display: flex;
+        flex-direction: column;
+
+        .market__tab {
+            display: flex;
+            justify-content: space-around;
+
+            .market__tab__tools,
+            .market__tab__items,
+            .market__tab__abilities {
+                border: 2px solid $color-help;
+                cursor: pointer;
+                width: 33.33%;
+                text-align: center;
+                padding: 20px 0 20px 0;
+            }
+            .active__tab {
+                border-bottom: 2px solid $color-accent;
+            }
+        }
+
+        
+
+        .market__tools {
+            font-size: $font-verySmall;
+            display: none;
+
+            .market__tools__item {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+
+                height: 110px;
+                border: 2px solid $color-help;
+
+                .item-icon {
+                    width: 50px;
+                    height: 50px;
+                    background-color: $color-help;
+                    border-radius: 100%;
+                }
+
+                .item-info {
+                    width: 60%;
+
+                    >h2 {
+                        font-size: $font-small;
+                        font-weight: 700;
+
+                        margin: 0 0 4px 0;
+                    }
+                }
+
+                .item-priceButton {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+
+                    >p {
+                        font-weight: 700;
+                    }
+
+                    >button {
+                        padding: 6px 20px;
+                        margin: 10px 0 0 0;
+                        color: $color-text_white;
+                        background: transparent;
+                        border: 2px solid $color-accent_Second;
+                    }
+
+                    >button:hover {
+                        background-color: $color-accent_Second;
+                    }
+                }
+            }
+
+            .market__tools__item:hover {
+                border-bottom: 2px solid $color-accent;
+                border-top: 2px solid $color-accent;
+            }
+        }
+
+        .active__market{
+            display: block;
+        }
     }
 
     .market_active {
@@ -146,7 +233,7 @@ body {
 
     .panel-below__items {
         display: flex;
-        gap: 1vw;
+        gap: 4vw;
 
 
         .item__block {
@@ -164,10 +251,10 @@ body {
                 justify-content: center;
                 align-items: center;
             }
-        }
 
-        .item:hover {
-            box-shadow: 0 0 5px $color-accent_Second;
+            .item:hover {
+                box-shadow: 0 0 5px $color-accent_Second;
+            }
         }
     }
 }
