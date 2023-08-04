@@ -33,7 +33,7 @@ body {
 .panel {
   color: rgb(255, 255, 255);
   background-color: rgb(27, 31, 60);
-  font-size: 14px;
+  font-size: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,15 +96,103 @@ body {
 }
 .panel .market {
   position: fixed;
-  right: -400px;
+  right: -500px;
   top: 100px;
-  width: 400px;
+  width: 500px;
   height: calc(100vh - 200px);
   background-color: rgb(27, 31, 60);
   border-left: 2px solid rgb(179, 55, 207);
   /* opacity: 0.9; */
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.panel .market .market__tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.panel .market .market__tab .market__tab__tools,
+.panel .market .market__tab .market__tab__items,
+.panel .market .market__tab .market__tab__abilities {
+  border: 2px solid rgb(38, 44, 80);
+  cursor: pointer;
+  width: 33.33%;
+  text-align: center;
+  padding: 20px 0 20px 0;
+}
+.panel .market .market__tab .active__tab {
+  border-bottom: 2px solid rgb(179, 55, 207);
+}
+.panel .market .market__tools {
+  font-size: 11px;
+  display: none;
+}
+.panel .market .market__tools .market__tools__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 110px;
+  border: 2px solid rgb(38, 44, 80);
+}
+.panel .market .market__tools .market__tools__item .item-icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(38, 44, 80);
+  border-radius: 100%;
+}
+.panel .market .market__tools .market__tools__item .item-info {
+  width: 60%;
+}
+.panel .market .market__tools .market__tools__item .item-info > h2 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+.panel .market .market__tools .market__tools__item .item-priceButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.panel .market .market__tools .market__tools__item .item-priceButton > p {
+  font-weight: 700;
+}
+.panel .market .market__tools .market__tools__item .item-priceButton > button {
+  padding: 6px 20px;
+  margin: 10px 0 0 0;
+  color: rgb(255, 255, 255);
+  background: transparent;
+  border: 2px solid rgb(73, 130, 235);
+}
+.panel .market .market__tools .market__tools__item .item-priceButton > button:hover {
+  background-color: rgb(73, 130, 235);
+}
+.panel .market .market__tools .market__tools__item:hover {
+  border-bottom: 2px solid rgb(179, 55, 207);
+  border-top: 2px solid rgb(179, 55, 207);
+}
+.panel .market .active__market {
+  display: block;
 }
 .panel .market_active {
   right: 0px;
@@ -129,7 +217,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1vw;
+  gap: 4vw;
 }
 .panel-below .panel-below__items .item__block > div {
   text-align: center;
@@ -149,7 +237,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
-.panel-below .panel-below__items .item:hover {
+.panel-below .panel-below__items .item__block .item:hover {
   -webkit-box-shadow: 0 0 5px rgb(73, 130, 235);
           box-shadow: 0 0 5px rgb(73, 130, 235);
 }
