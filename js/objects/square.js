@@ -1,5 +1,5 @@
 class Square extends Object {
-  rotate = 0;
+  rotate = getRandomInt(0,181);;
   constructor(obj) {
     super(obj); // вызывает конструктор super класса и передаёт параметр name
   }

@@ -1,5 +1,5 @@
 class Triangle extends Object {
-  rotate = 0;
+  rotate = getRandomInt(0,181);
   constructor(obj) {
     super(obj);
   }
