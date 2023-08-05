@@ -85,9 +85,13 @@ let STORE = {
 
     let activateWeapon = this.weapon[this.activeWeapon];
     this.weapon[this.activeWeapon].recharge = true;
+    this.animateCooldown("weapon",this.weapon[this.activeWeapon].cooldown)
     setTimeout(() => {
       activateWeapon.recharge = false;
     }, this.weapon[this.activeWeapon].cooldown * 1000);
+  },
+  animateCooldown(type,sec){
+    console.log("animate " +sec + "sec")
   },
   activateItem(info) {
     if (info.type == "grenade" && this.items.grenade > 0) {

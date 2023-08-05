@@ -39,7 +39,7 @@
                 <div class="market__tab__abilities">Способности</div>
             </div>
 
-            <div class="market__tools active__market">
+            <div id="market-tools" class="market__tools active__market">
                 <div class="market__tools__item item-pickaxe">
                     <div class="item-icon"></div>
                     <div class="item-info">
@@ -134,6 +134,8 @@
 </script>
 <script src="js/script.js"></script>
 
+<!-- создание элементов через js -->
+<script src="js/DOMElementsCreator.js"></script>
 <!-- список уровней прокачки -->
 <script src="js/upgrades.js"></script>
  <!-- фигуры -->
@@ -151,6 +153,7 @@
 <script src="js/canvas.js"></script>
 <!-- работа с интерфейсом  -->
 <script src="js/interface.js"></script>
+
 <script>
     let ACTIVE_GAME = true;
     document.addEventListener("visibilitychange", function () {

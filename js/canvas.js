@@ -9,6 +9,7 @@ class Canvas {
     STORE.score = info?.score || 0;
     STORE.damage = info?.damage || 0;
     this.spawnObj = info?.spawnObj  || 10000;
+    DOMElementsCreator.createMarketToolsItem();
     setInterval(() => {
       if (!ACTIVE_GAME) return;
       this.updateRender();
