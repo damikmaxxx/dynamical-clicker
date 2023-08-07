@@ -106,7 +106,7 @@
     </div>
     <canvas id="canvas"></canvas>
     <div class="panel panel-below">
-        <div class="panel-below__items">
+        <div id="activeCursor" class="panel-below__items">
             <div class="item__block">
                 <div class="item">
                     <p>Удар</p>
@@ -115,9 +115,9 @@
             </div>
             <div class="item__block">
                 <div class="item">
-                    <p>муха</p>
+                    <p>придумать</p>
                 </div>
-                <div>12</div>
+                <div>10 очков</div>
             </div>
             <div class="item__block">
                 <div class="item">
@@ -138,6 +138,10 @@
 <script src="js/DOMElementsCreator.js"></script>
 <!-- список уровней прокачки -->
 <script src="js/upgrades.js"></script>
+
+<!-- список анимации -->
+<script src="js/magicAnim/circleElementsMagic.js"></script>
+<script src="js/magicAnimation.js"></script>
  <!-- фигуры -->
  <script src="js/object.js"></script>
  <script src="js/objects/circle.js"></script>
@@ -191,7 +195,7 @@
             yS: 1,
             r: 30,
             hover: false,
-            value: 500,
+            value: 30,
         }),
     ]
     STORE.activeItem = [new Grenade()]

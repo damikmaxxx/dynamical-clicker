@@ -22,6 +22,10 @@ class Object {
     this.move();
     this.decreaseValue(0.1);
   }
+  newPos(x,y){
+    this.x = x;
+    this.y = y;
+  }
   checkBorder() {
     let borderTouch = false;
     if (this.x + this.r >= canvas.width && this.xS > 0) {

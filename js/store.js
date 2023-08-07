@@ -1,6 +1,19 @@
 let STORE = {
   time: 0,
-  activeCursor: "grenade",
+  activeCursor: {
+    weapons: {
+      name: "hand",
+      recharge: false,
+    },
+    magic: {
+      name: "circleElements",
+      recharge: false,
+    },
+    items: {
+      name: "grenade",
+      recharge: false,
+    },
+  },
   lastID: 0,
   score: 0,
   properties: {
@@ -18,34 +31,45 @@ let STORE = {
     },
     items: {
       grenade: {
+        name: "граната",
         level: 1,
         speed: 15,
         fragments: 30,
         damage: 10,
         range: 2,
+        cooldown: 2,
+      },
+    },
+    weapons: {
+      hand: {
+        name: "рука",
+        level: 1,
+
+        cooldown: 0.2,
+        damage: 20,
+      },
+    },
+    magic: {
+      circleElements: {
+        name: "придумать",
+        level: 1,
+        damage: 5,
+        fragments: 30,
+        cooldown: 10,
       },
     },
   },
-  weapon: {
-    hand: {
-      level: 1,
-      recharge: false,
-      cooldown: 0.2,
-      damage: 20,
-    },
-  },
-  activeWeapon: "hand",
+
   items: {
     grenade: 50,
   },
   activeItem: [],
   objects: [],
-
+  magicAnimation: new magicAnimation(),
   addPoint(p) {
     this.score += p;
   },
   addObject(obj) {
-    obj.id = this.returnAvailableId();
     switch (obj.type) {
       case "Circle":
         this.objects.push(new Circle(obj));
@@ -61,9 +85,9 @@ let STORE = {
     }
   },
   activateWeapon() {
-    if (this.weapon[this.activeWeapon].recharge) return;
-
-    switch (this.activeWeapon) {
+    if (this.activeCursor.weapons.recharge) return;
+    let activeW = this.activeCursor.weapons.name
+    switch (activeW) {
       case "hand":
         let clickObj = this.objects.find((el) => {
           return (
@@ -73,9 +97,9 @@ let STORE = {
             el.y - el.r < mouse.y
           );
         });
-        if (clickObj && !this.weapon[this.activeWeapon].recharge)
+        if (clickObj && !this.activeCursor.weapons.recharge)
           this.addPoint(
-            clickObj.getDamage(this.weapon[this.activeWeapon].damage)
+            clickObj.getDamage(this.properties.weapons[activeW].damage)
           );
 
         break;
@@ -83,15 +107,16 @@ let STORE = {
         console.log("нет такого оружия");
     }
 
-    let activateWeapon = this.weapon[this.activeWeapon];
-    this.weapon[this.activeWeapon].recharge = true;
-    this.animateCooldown("weapon",this.weapon[this.activeWeapon].cooldown)
+    let activateWeapon = this.activeCursor.weapons;
+
+    this.activeCursor.weapons.recharge = true;
+    this.animateCooldown("weapon", this.properties.weapons[activeW].cooldown);
     setTimeout(() => {
       activateWeapon.recharge = false;
-    }, this.weapon[this.activeWeapon].cooldown * 1000);
+    }, this.properties.weapons[activeW].cooldown * 1000);
   },
-  animateCooldown(type,sec){
-    console.log("animate " +sec + "sec")
+  animateCooldown(type, sec) {
+    console.log("animate " + sec + "sec");
   },
   activateItem(info) {
     if (info.type == "grenade" && this.items.grenade > 0) {
@@ -108,6 +133,9 @@ let STORE = {
       this.items.grenade--;
     }
   },
+  activateMagic() {
+    this.magicAnimation.start("circleElements", (x = mouse.x), (y = mouse.y));
+  },
   active() {
     const reverse = this.objects.map(
       (_, index) => this.objects[this.objects.length - 1 - index]
@@ -118,6 +146,8 @@ let STORE = {
     this.activeItem.forEach((el) => {
       el.action();
     });
+
+    this.magicAnimation.update();
   },
   mouseHoverObjects() {
     this.objects.forEach((el) => {
@@ -133,6 +163,11 @@ let STORE = {
 
   deleteObject(id) {
     this.objects = this.objects.filter((el) => !(el.id == id));
+  },
+  deleterArrObject(arrId) {
+    for (let i = 0; i < arrId.length; i++) {
+      this.objects = this.objects.filter((el) => !(el.id == id));
+    }
   },
   deleteActiveItem(id) {
     this.activeItem = this.activeItem.filter((el) => !(el.id == id));
@@ -189,12 +224,22 @@ let STORE = {
   upgrade(type, item) {
     switch (type) {
       case "weapon":
-        if (STORE.weapon[item].level >= UPGRADES.weapon.hand.length) return;
-        let lev = ++STORE.weapon[item].level;
-
-        STORE.weapon[item] = UPGRADES.weapon.hand[STORE.weapon[item].level - 1];
-        STORE.weapon[item].level = lev;
+        if (STORE.properties.weapons[item].level >= UPGRADES.weapons.hand.length) return;
+        let lev = ++STORE.properties.weapons[item].level;
+        STORE.properties.weapons[item] = UPGRADES.weapons.hand[STORE.properties.weapons[item].level - 1];
+        STORE.properties.weapons[item].level = lev;
         break;
     }
+  },
+  getObjectsById(arrId) {
+    arrObjects = [];
+    for (let i = 0; i < arrId.length; i++) {
+      arrObjects.push(
+        this.objects.find((el) => {
+          return el.id == arrId[i];
+        })
+      );
+    }
+    return arrObjects;
   },
 };

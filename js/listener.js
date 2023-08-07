@@ -2,6 +2,9 @@ CANVAS.addEventListener("mousedown", (e) => {
   if (e.button == 0) {
     STORE.activateWeapon()
   }
+  if(e.button == 1){
+    STORE.activateMagic();
+  }
   if (e.button == 2) {
     STORE.activateItem({ type: "grenade", x: mouse.x, y: mouse.y });
   }

@@ -1,5 +1,5 @@
 const UPGRADES = {
-  item: {
+  items: {
     grenade: [
       {
         speed: 5,
@@ -21,7 +21,7 @@ const UPGRADES = {
       },
     ],
   },
-  weapon: {
+  weapons: {
     hand: [
       {
         cooldown: 0.2,
