@@ -24,8 +24,8 @@
                 сила удара:
                 <span id="damage">0</span>
             </div>
-            <div style="cursor: pointer;"  onclick="STORE.upgrade('weapon','hand')">улучшить удар
-            (<span id="hand_level"></span>) уровень
+            <div style="cursor: pointer;" onclick="STORE.upgrade('weapon','hand')">улучшить удар
+                (<span id="hand_level"></span>) уровень
             </div>
         </div>
 
@@ -33,94 +33,95 @@
             Магазин
         </button>
         <div class="market block-moving">
-            <div class="market__tabs block-moving__tabs">
-                <div class="market__tab-first block-moving__tab-first active__tab" >Инструменты</div>
-                <div class="market__tab-second block-moving__tab-second">Предметы</div>
-                <div class="market__tab-third block-moving__tab-third ">Способности</div>
+            <div id="tabs" class="market__tabs block-moving__tabs">
+                <div class="market__tab block-moving__tab tab-active" data-tab="weopen">Оружие</div>
+                <div class="market__tab block-moving__tab" data-tab="item">Предметы</div>
+                <div class="market__tab block-moving__tab" data-tab="magic">Магия</div>
+            </div>
+            <div id="tabs-content" class="market-tabs">
+
+                <div class="market-tab-content tab-content-active" data-tab-content="weopen">
+                    <div class="market-tabObj-first__item" >
+                        <div class="item-icon"></div>
+                        <div class="item-info">
+                            <h2>Железная кирка</h2>
+                            <p>
+                                тут описание что то будет написано..., пррпрпрпрппррпр за место
+                                лорем, так ведь интереснее?
+                            </p>
+                        </div>
+                        <div class="item-priceButton">
+                            <p>200 очков</p>
+                            <button>купить</button>
+                        </div>
+                    </div>
+
+                    <div class="market-tabObj-first__item">
+                        <div class="item-icon"></div>
+                        <div class="item-info">
+                            <h2>Железная кирка</h2>
+                            <p>
+                                тут описание что то будет написано..., пррпрпрпрппррпр за место
+                                лорем, так ведь интереснее?
+                            </p>
+                        </div>
+                        <div class="item-priceButton">
+                            <p>200 очков</p>
+                            <button>купить</button>
+                        </div>
+                    </div>
+
+                    <div class="market-tabObj-first__item">
+                        <div class="item-icon"></div>
+                        <div class="item-info">
+                            <h2>Железная кирка</h2>
+                            <p>
+                                тут описание что то будет написано..., пррпрпрпрппррпр за место
+                                лорем, так ведь интереснее?
+                            </p>
+                        </div>
+                        <div class="item-priceButton">
+                            <p>200 очков</p>
+                            <button>купить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="market-tab-content" data-tab-content="item">
+                    <div class="market-tabObj-first__item">
+                        <div class="item-icon"></div>
+                        <div class="item-info">
+                            <h2>Граната</h2>
+                            <p>
+                                тут описание что то будет написано..., пррпрпрпрппррпр за место
+                                лорем, так ведь интереснее?
+                            </p>
+                        </div>
+                        <div class="item-priceButton">
+                            <p>10 очков</p>
+                            <button>купить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="market-tab-content" data-tab-content="magic">
+                    <div class="market-tabObj-first__item">
+                        <div class="item-icon"></div>
+                        <div class="item-info">
+                            <h2>ЛевиТация</h2>
+                            <p>
+                                тут описание что то будет написано..., пррпрпрпрппррпр за место
+                                лорем, так ведь интереснее?
+                            </p>
+                        </div>
+                        <div class="item-priceButton">
+                            <p>100 очков</p>
+                            <button>купить</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div id="market-tools" class="market-tabObj-first active__tab_block">
-                <div class="market-tabObj-first__item">
-                    <div class="item-icon"></div>
-                    <div class="item-info">
-                        <h2>Железная кирка</h2>
-                        <p>
-                            тут описание что то будет написано..., пррпрпрпрппррпр за место
-                            лорем, так ведь интереснее?
-                        </p>
-                    </div>
-                    <div class="item-priceButton">
-                        <p>200 очков</p>
-                        <button>купить</button>
-                    </div>
-                </div>
-                
-                <div class="market-tabObj-first__item">
-                    <div class="item-icon"></div>
-                    <div class="item-info">
-                        <h2>Железная кирка</h2>
-                        <p>
-                            тут описание что то будет написано..., пррпрпрпрппррпр за место
-                            лорем, так ведь интереснее?
-                        </p>
-                    </div>
-                    <div class="item-priceButton">
-                        <p>200 очков</p>
-                        <button>купить</button>
-                    </div>
-                </div>
-
-                <div class="market-tabObj-first__item">
-                    <div class="item-icon"></div>
-                    <div class="item-info">
-                        <h2>Железная кирка</h2>
-                        <p>
-                            тут описание что то будет написано..., пррпрпрпрппррпр за место
-                            лорем, так ведь интереснее?
-                        </p>
-                    </div>
-                    <div class="item-priceButton">
-                        <p>200 очков</p>
-                        <button>купить</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="market-tabObj-second">
-                <div class="market-tabObj-first__item">
-                    <div class="item-icon"></div>
-                    <div class="item-info">
-                        <h2>Граната</h2>
-                        <p>
-                            тут описание что то будет написано..., пррпрпрпрппррпр за место
-                            лорем, так ведь интереснее?
-                        </p>
-                    </div>
-                    <div class="item-priceButton">
-                        <p>10 очков</p>
-                        <button>купить</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="market-tabObj-third">
-                <div class="market-tabObj-first__item">
-                    <div class="item-icon"></div>
-                    <div class="item-info">
-                        <h2>ЛевиТация</h2>
-                        <p>
-                            тут описание что то будет написано..., пррпрпрпрппррпр за место
-                            лорем, так ведь интереснее?
-                        </p>
-                    </div>
-                    <div class="item-priceButton">
-                        <p>100 очков</p>
-                        <button>купить</button>
-                    </div>
-                </div>
-            </div>
-
-            
         </div>
     </div>
     <canvas id="canvas"></canvas>
@@ -157,9 +158,9 @@
 <script src="js/DOMElementsCreator.js"></script>
 <!-- список уровней прокачки -->
 <script src="js/upgrades.js"></script>
- <!-- фигуры -->
- <script src="js/object.js"></script>
- <script src="js/objects/circle.js"></script>
+<!-- фигуры -->
+<script src="js/object.js"></script>
+<script src="js/objects/circle.js"></script>
 <script src="js/objects/square.js"></script>
 <script src="js/objects/triangle.js "></script>
 <!-- предметы -->

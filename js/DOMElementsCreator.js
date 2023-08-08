@@ -14,6 +14,7 @@ let DOMElementsCreator = {
       </div>
     </div>`,
   createMarketToolsItem() {
+    if(document.getElementById("market-tools") == null) return
     document.getElementById("market-tools").innerHTML = "";
     if (!document.getElementById("market-tools")) return;
       for (let i = 0; i < 5; i++) {
