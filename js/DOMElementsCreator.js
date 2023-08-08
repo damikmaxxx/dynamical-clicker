@@ -39,8 +39,9 @@ let DOMElementsCreator = {
 
   activeCursor() {
     let el = ["weapon","magic","item"]
+    if(document.getElementById("activeCursor") == null) return
     document.getElementById("activeCursor").innerHTML = "";
-
+    
     for (key in STORE.activeCursor) {  
       console.log()
       document.getElementById("activeCursor").innerHTML += DOMElementsCreator[
