@@ -103,7 +103,15 @@ body {
     .market_active {
         right: 0px;
     }
-
+    #tabs-line{
+        background-color:$color-accent;
+        position: absolute;
+        width:33%;
+        height: 2px;
+        left:0px;
+        bottom:0px;
+        transition: .4s;
+    }
     .block-moving {
         position: fixed;
         top: 100px;
@@ -118,7 +126,7 @@ body {
         .block-moving__tabs {
             display: flex;
             justify-content: space-around;
-
+            position: relative;
             .block-moving__tab {
                 cursor: pointer;
                 width: 33.33%;
@@ -127,9 +135,6 @@ body {
             }
 
 
-            .tab-active {
-                border-bottom: 2px solid $color-accent;
-            }
         }
 
 

@@ -85,6 +85,16 @@ body {
 .panel .market_active {
   right: 0px;
 }
+.panel #tabs-line {
+  background-color: rgb(179, 55, 207);
+  position: absolute;
+  width: 33%;
+  height: 2px;
+  left: 0px;
+  bottom: 0px;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
 .panel .block-moving {
   position: fixed;
   top: 100px;
@@ -107,15 +117,13 @@ body {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  position: relative;
 }
 .panel .block-moving .block-moving__tabs .block-moving__tab {
   cursor: pointer;
   width: 33.33%;
   text-align: center;
   padding: 20px 0 20px 0;
-}
-.panel .block-moving .block-moving__tabs .tab-active {
-  border-bottom: 2px solid rgb(179, 55, 207);
 }
 .panel .block-moving .market-tabObj-first__item {
   display: -webkit-box;
