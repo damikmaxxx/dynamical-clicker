@@ -79,32 +79,20 @@ body {
           transition-duration: 0.2s;
   cursor: pointer;
 }
-.panel .inventory {
-  position: fixed;
-  left: -400px;
-  top: 100px;
-  width: 400px;
-  height: calc(100vh - 200px);
-  background-color: rgb(27, 31, 60);
-  border-right: 2px solid rgb(73, 130, 235);
-  /* opacity: 0.9; */
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-}
 .panel .inventory_active {
   left: 0px;
 }
-.panel .market {
+.panel .market_active {
+  right: 0px;
+}
+.panel .block-moving {
   position: fixed;
-  right: -500px;
   top: 100px;
   width: 500px;
   height: calc(100vh - 200px);
-  background-color: rgb(27, 31, 60);
-  border-left: 2px solid rgb(179, 55, 207);
-  /* opacity: 0.9; */
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
+  /* opacity: 0.9; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -113,30 +101,25 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.panel .market .market__tab {
+.panel .block-moving .block-moving__tabs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
-.panel .market .market__tab .market__tab__tools,
-.panel .market .market__tab .market__tab__items,
-.panel .market .market__tab .market__tab__abilities {
-  border: 2px solid rgb(38, 44, 80);
+.panel .block-moving .block-moving__tabs .block-moving__tab-first,
+.panel .block-moving .block-moving__tabs .block-moving__tab-second,
+.panel .block-moving .block-moving__tabs .block-moving__tab-third {
   cursor: pointer;
   width: 33.33%;
   text-align: center;
   padding: 20px 0 20px 0;
 }
-.panel .market .market__tab .active__tab {
+.panel .block-moving .block-moving__tabs .active__tab {
   border-bottom: 2px solid rgb(179, 55, 207);
 }
-.panel .market .market__tools {
-  font-size: 11px;
-  display: none;
-}
-.panel .market .market__tools .market__tools__item {
+.panel .block-moving .market-tabObj-first__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -148,21 +131,21 @@ body {
   height: 110px;
   border: 2px solid rgb(38, 44, 80);
 }
-.panel .market .market__tools .market__tools__item .item-icon {
+.panel .block-moving .market-tabObj-first__item .item-icon {
   width: 50px;
   height: 50px;
   background-color: rgb(38, 44, 80);
   border-radius: 100%;
 }
-.panel .market .market__tools .market__tools__item .item-info {
+.panel .block-moving .market-tabObj-first__item .item-info {
   width: 60%;
 }
-.panel .market .market__tools .market__tools__item .item-info > h2 {
+.panel .block-moving .market-tabObj-first__item .item-info > h2 {
   font-size: 15px;
   font-weight: 700;
   margin: 0 0 4px 0;
 }
-.panel .market .market__tools .market__tools__item .item-priceButton {
+.panel .block-moving .market-tabObj-first__item .item-priceButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,35 +157,58 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.panel .market .market__tools .market__tools__item .item-priceButton > p {
+.panel .block-moving .market-tabObj-first__item .item-priceButton > p {
   font-weight: 700;
 }
-.panel .market .market__tools .market__tools__item .item-priceButton > button {
+.panel .block-moving .market-tabObj-first__item .item-priceButton > button {
   padding: 6px 20px;
   margin: 10px 0 0 0;
   color: rgb(255, 255, 255);
   background: transparent;
   border: 2px solid rgb(73, 130, 235);
 }
-.panel .market .market__tools .market__tools__item .item-priceButton > button:hover {
+.panel .block-moving .market-tabObj-first__item .item-priceButton > button:hover {
   background-color: rgb(73, 130, 235);
 }
-.panel .market .market__tools .market__tools__item:hover {
+.panel .block-moving .market-tabObj-first__item:hover {
   border-bottom: 2px solid rgb(179, 55, 207);
   border-top: 2px solid rgb(179, 55, 207);
 }
-.panel .market .active__market {
+
+.inventory {
+  position: fixed;
+  left: -500px;
+  background-color: rgb(27, 31, 60);
+  border-right: 2px solid rgb(73, 130, 235);
+}
+
+.market {
+  position: fixed;
+  right: -500px;
+  background-color: rgb(27, 31, 60);
+  border-left: 2px solid rgb(179, 55, 207);
+}
+.market .market-tabObj-first {
+  font-size: 11px;
+  display: none;
+}
+.market .market-tabObj-second {
+  font-size: 11px;
+  display: none;
+}
+.market .market-tabObj-third {
+  font-size: 11px;
+  display: none;
+}
+.market .active__tab_block {
   display: block;
 }
-.panel .market_active {
-  right: 0px;
-}
-.panel .panel__button-market:hover {
+.market .panel__button-market:hover {
   background-color: rgb(179, 55, 207);
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
 }
-.panel .panel__button-inventory:hover {
+.market .panel__button-inventory:hover {
   background-color: rgb(73, 130, 235);
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
@@ -217,7 +223,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 4vw;
+  gap: 2vw;
 }
 .panel-below .panel-below__items .item__block > div {
   text-align: center;

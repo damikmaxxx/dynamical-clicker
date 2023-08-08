@@ -13,7 +13,7 @@
         <button class="panel__button-inventory">
             Инвентарь
         </button>
-        <div class="inventory"></div>
+        <div class="inventory block-moving"></div>
 
         <div class="panel__info">
             <div class="panel__info-score">
@@ -32,15 +32,30 @@
         <button class="panel__button-market">
             Магазин
         </button>
-        <div class="market">
-            <div class="market__tab">
-                <div class="market__tab__tools active__tab">Инструменты</div>
-                <div class="market__tab__items">Предметы</div>
-                <div class="market__tab__abilities">Способности</div>
+        <div class="market block-moving">
+            <div class="market__tabs block-moving__tabs">
+                <div class="market__tab-first block-moving__tab-first active__tab" >Инструменты</div>
+                <div class="market__tab-second block-moving__tab-second">Предметы</div>
+                <div class="market__tab-third block-moving__tab-third ">Способности</div>
             </div>
 
-            <div id="market-tools" class="market__tools active__market">
-                <div class="market__tools__item item-pickaxe">
+            <div id="market-tools" class="market-tabObj-first active__tab_block">
+                <div class="market-tabObj-first__item">
+                    <div class="item-icon"></div>
+                    <div class="item-info">
+                        <h2>Железная кирка</h2>
+                        <p>
+                            тут описание что то будет написано..., пррпрпрпрппррпр за место
+                            лорем, так ведь интереснее?
+                        </p>
+                    </div>
+                    <div class="item-priceButton">
+                        <p>200 очков</p>
+                        <button>купить</button>
+                    </div>
+                </div>
+                
+                <div class="market-tabObj-first__item">
                     <div class="item-icon"></div>
                     <div class="item-info">
                         <h2>Железная кирка</h2>
@@ -55,7 +70,7 @@
                     </div>
                 </div>
 
-                <div class="market__tools__item item-pickaxe">
+                <div class="market-tabObj-first__item">
                     <div class="item-icon"></div>
                     <div class="item-info">
                         <h2>Железная кирка</h2>
@@ -69,33 +84,37 @@
                         <button>купить</button>
                     </div>
                 </div>
+            </div>
 
-                <div class="market__tools__item item-pickaxe">
+            <div class="market-tabObj-second">
+                <div class="market-tabObj-first__item">
                     <div class="item-icon"></div>
                     <div class="item-info">
-                        <h2>Железная кирка</h2>
+                        <h2>Граната</h2>
                         <p>
                             тут описание что то будет написано..., пррпрпрпрппррпр за место
                             лорем, так ведь интереснее?
                         </p>
                     </div>
                     <div class="item-priceButton">
-                        <p>200 очков</p>
+                        <p>10 очков</p>
                         <button>купить</button>
                     </div>
                 </div>
+            </div>
 
-                <div class="market__tools__item item-pickaxe">
+            <div class="market-tabObj-third">
+                <div class="market-tabObj-first__item">
                     <div class="item-icon"></div>
                     <div class="item-info">
-                        <h2>Железная кирка</h2>
+                        <h2>ЛевиТация</h2>
                         <p>
                             тут описание что то будет написано..., пррпрпрпрппррпр за место
                             лорем, так ведь интереснее?
                         </p>
                     </div>
                     <div class="item-priceButton">
-                        <p>200 очков</p>
+                        <p>100 очков</p>
                         <button>купить</button>
                     </div>
                 </div>
@@ -106,7 +125,7 @@
     </div>
     <canvas id="canvas"></canvas>
     <div class="panel panel-below">
-        <div id="activeCursor" class="panel-below__items">
+        <div class="panel-below__items">
             <div class="item__block">
                 <div class="item">
                     <p>Удар</p>
@@ -115,9 +134,9 @@
             </div>
             <div class="item__block">
                 <div class="item">
-                    <p>придумать</p>
+                    <p>муха</p>
                 </div>
-                <div>10 очков</div>
+                <div>12</div>
             </div>
             <div class="item__block">
                 <div class="item">
@@ -138,10 +157,6 @@
 <script src="js/DOMElementsCreator.js"></script>
 <!-- список уровней прокачки -->
 <script src="js/upgrades.js"></script>
-
-<!-- список анимации -->
-<script src="js/magicAnim/circleElementsMagic.js"></script>
-<script src="js/magicAnimation.js"></script>
  <!-- фигуры -->
  <script src="js/object.js"></script>
  <script src="js/objects/circle.js"></script>
@@ -195,7 +210,7 @@
             yS: 1,
             r: 30,
             hover: false,
-            value: 30,
+            value: 500,
         }),
     ]
     STORE.activeItem = [new Grenade()]
