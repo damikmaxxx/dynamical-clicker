@@ -47,16 +47,13 @@ document.addEventListener("click", (a) => {
   
 });
 
+// РАБОТА С ТАБАМИ
 document.getElementById("tabs").addEventListener("click", e => {
   const tabChilds = e.target.parentNode.children
   const tabContentChilds = document.querySelectorAll('#tabs ~ #tabs-content')[0].children;
   let contentTab;
-  for(let i = 0; i < tabChilds.length;i++){
-    tabChilds[i].classList.remove("tab-active")
-  } 
-
+  for(let i = 0; i < tabChilds.length;i++){tabChilds[i].classList.remove("tab-active")} 
   e.target.classList.add("tab-active")
-  console.log(document.getElementById("tabs-line").style.left , e.target.offsetLeft);
   document.getElementById("tabs-line").style.left = e.target.offsetLeft + "px";
   contentTab = e.target.dataset.tab;
   for(let i = 0; i < tabContentChilds.length; i++) tabContentChilds[i].classList.remove("tab-content-active")
