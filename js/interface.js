@@ -58,22 +58,22 @@ document.addEventListener("click", (a) => {
     marketTabFirst.classList.add("active__tab")
     marketTabSecond.classList.remove("active__tab");
     marketTabThird.classList.remove("active__tab");
-    market_tabObj_first.classList.toggle("active__tab_block");
-    market_tabObj_second.classList.toggle("active__tab_block");
-    market_tabObj_third.classList.toggle("active__tab_block");
+    market_tabObj_first.classList.add("active__tab_block");
+    market_tabObj_second.classList.remove("active__tab_block");
+    market_tabObj_third.classList.remove("active__tab_block");
   } else if (click__marketTabSecond) {
     marketTabSecond.classList.add("active__tab")
     marketTabFirst.classList.remove("active__tab");
     marketTabThird.classList.remove("active__tab");
-    market_tabObj_first.classList.toggle("active__tab_block");
-    market_tabObj_second.classList.toggle("active__tab_block");
-    market_tabObj_third.classList.toggle("active__tab_block");
+    market_tabObj_first.classList.remove("active__tab_block");
+    market_tabObj_second.classList.add("active__tab_block");
+    market_tabObj_third.classList.remove("active__tab_block");
   } else if (click__marketTabThird) {
     marketTabThird.classList.add("active__tab")
     marketTabFirst.classList.remove("active__tab");
     marketTabSecond.classList.remove("active__tab");
-    market_tabObj_first.classList.toggle("active__tab_block");
-    market_tabObj_second.classList.toggle("active__tab_block");
-    market_tabObj_third.classList.toggle("active__tab_block");
+    market_tabObj_first.classList.remove("active__tab_block");
+    market_tabObj_second.classList.remove("active__tab_block");
+    market_tabObj_third.classList.add("active__tab_block");
   }
 });
