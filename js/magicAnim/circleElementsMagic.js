@@ -49,7 +49,7 @@ class circleElementsMagic {
       this.deg += 360 / this.num;
       el.newPos(
         this.x + this.R * Math.cos(inRad(this.deg + this.time)),
-        this.y + this.R * Math.sin(inRad(this.deg + this.time))
+        this.y + this.R * Math.sin(inRad(this.deg + this.time)),
       );
     });
   }

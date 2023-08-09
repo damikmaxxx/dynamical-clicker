@@ -48,18 +48,29 @@ document.addEventListener("click", (a) => {
 });
 
 // РАБОТА С ТАБАМИ
-document.querySelector(".tabs").addEventListener("click", e => {
-  const tabChilds = e.target.parentNode.children
-  const tabContentChilds = document.querySelectorAll('.tabs ~ .tabs-content')[0].children;
-  let contentTab;
-  for(let i = 0; i < tabChilds.length;i++){tabChilds[i].classList.remove(".tab-active")} 
-  e.target.classList.add(".tab-active")
-  document.querySelector(".tabs-line").style.left = e.target.offsetLeft + "px";
-  contentTab = e.target.dataset.tab;
-  for(let i = 0; i < tabContentChilds.length; i++) tabContentChilds[i].classList.remove(".tab-content-active")
-  for(let i = 0; i < tabContentChilds.length; i++)if(tabContentChilds[i].dataset.tabContent == contentTab)tabContentChilds[i].classList.add(".tab-content-active") 
+var tabs = document.querySelectorAll(".tabs");
+for (var i = 0; i < tabs.length; i++) {
+  tabs[i].onclick = function(e){
+    const tabChilds = e.target.parentNode.children
+    const tabContentChilds = e.target.parentNode.parentNode.children[1];
+    let contentTab;
+    for(let i = 0; i < tabChilds.length;i++){tabChilds[i].classList.remove("tab-active")} 
+    e.target.classList.add("tab-active")
 
-});
+    for (var i = 0; i < e.target.parentNode.children.length; i++) {
+      if (e.target.parentNode.children[i].className.includes("tabs-line")) {
+        e.target.parentNode.children[i].style.left = e.target.offsetLeft + "px";
+        break;
+      }        
+  }
+    contentTab = e.target.dataset.tab;
+    console.log(tabContentChilds.children)
+    for(let i = 0; i < tabContentChilds.children.length; i++) tabContentChilds.children[i].classList.remove("tab-content-active")
+    for(let i = 0; i < tabContentChilds.children.length; i++)if(tabContentChilds.children[i].dataset.tabContent == contentTab)tabContentChilds.children[i].classList.add("tab-content-active") 
+  
+  }
+}
+
 
 
 

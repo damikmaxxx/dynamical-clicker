@@ -96,9 +96,7 @@ body {
         left: 0px;
     }
 
-    .market_active {
-        right: 0px;
-    }
+
 
     .panel__button-market:hover {
         background-color: $color-accent;
@@ -116,7 +114,9 @@ body {
         background-color: $color-help_Second;
         border-left: 2px solid $color-accent;
     }
-
+    .market_active {
+        right: 0px;
+    }
     .block-moving {
         position: fixed;
         top: 100px;
@@ -139,9 +139,7 @@ body {
                 text-align: center;
                 padding: 20px 0 20px 0;
             }
-
-            #tabs-line-inv {
-                background-color: $color-accent_Second;
+            .tabs-line{
                 position: absolute;
                 width: 33%;
                 height: 2px;
@@ -149,19 +147,20 @@ body {
                 bottom: 0px;
                 transition: 0.2s;
             }
+            .tabs-line-inv {
+                background-color: $color-accent_Second;
 
-            #tabs-line-mark {
+            }
+
+            .tabs-line-mark {
                 background-color: $color-accent;
-                position: absolute;
-                width: 33%;
-                height: 2px;
-                left: 0px;
-                bottom: 0px;
-                transition: 0.2s;
             }
         }
 
         .tabs-content {
+            .tabs-content__block{
+                display: none;
+            }
             .tab-content-active {
                 display: block;
             }
