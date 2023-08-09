@@ -48,9 +48,9 @@ document.addEventListener("click", (a) => {
 });
 
 // РАБОТА С ТАБАМИ
-document.getElementById("tabs").addEventListener("click", e => {
+document.querySelector(".tabs").addEventListener("click", e => {
   const tabChilds = e.target.parentNode.children
-  const tabContentChilds = document.querySelectorAll('#tabs ~ #tabs-content')[0].children;
+  const tabContentChilds = document.querySelectorAll('.tabs ~ .tabs-content')[0].children;
   let contentTab;
   for(let i = 0; i < tabChilds.length;i++){tabChilds[i].classList.remove("tab-active")} 
   e.target.classList.add("tab-active")

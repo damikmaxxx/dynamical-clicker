@@ -85,15 +85,21 @@ body {
 .panel .market_active {
   right: 0px;
 }
-.panel #tabs-line {
+.panel .panel__button-market:hover {
   background-color: rgb(179, 55, 207);
-  position: absolute;
-  width: 33%;
-  height: 2px;
-  left: 0px;
-  bottom: 0px;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+.panel .panel__button-inventory:hover {
+  background-color: rgb(73, 130, 235);
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+.panel .market {
+  position: fixed;
+  right: -500px;
+  background-color: rgb(27, 31, 60);
+  border-left: 2px solid rgb(179, 55, 207);
 }
 .panel .block-moving {
   position: fixed;
@@ -125,7 +131,30 @@ body {
   text-align: center;
   padding: 20px 0 20px 0;
 }
-.panel .block-moving .market-tabObj-first__item {
+.panel .block-moving .block-moving__tabs #tabs-line-inv {
+  background-color: rgb(73, 130, 235);
+  position: absolute;
+  width: 33%;
+  height: 2px;
+  left: 0px;
+  bottom: 0px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.panel .block-moving .block-moving__tabs #tabs-line-mark {
+  background-color: rgb(179, 55, 207);
+  position: absolute;
+  width: 33%;
+  height: 2px;
+  left: 0px;
+  bottom: 0px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.panel .block-moving .tabs-content .tab-content-active {
+  display: block;
+}
+.panel .block-moving .tabs-content .tabs-content__block__obj {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -137,21 +166,21 @@ body {
   height: 110px;
   border: 2px solid rgb(38, 44, 80);
 }
-.panel .block-moving .market-tabObj-first__item .item-icon {
+.panel .block-moving .tabs-content .tabs-content__block__obj .item-icon {
   width: 50px;
   height: 50px;
   background-color: rgb(38, 44, 80);
   border-radius: 100%;
 }
-.panel .block-moving .market-tabObj-first__item .item-info {
+.panel .block-moving .tabs-content .tabs-content__block__obj .item-info {
   width: 60%;
 }
-.panel .block-moving .market-tabObj-first__item .item-info > h2 {
+.panel .block-moving .tabs-content .tabs-content__block__obj .item-info > h2 {
   font-size: 15px;
   font-weight: 700;
   margin: 0 0 4px 0;
 }
-.panel .block-moving .market-tabObj-first__item .item-priceButton {
+.panel .block-moving .tabs-content .tabs-content__block__obj .item-priceButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,20 +192,20 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.panel .block-moving .market-tabObj-first__item .item-priceButton > p {
+.panel .block-moving .tabs-content .tabs-content__block__obj .item-priceButton > p {
   font-weight: 700;
 }
-.panel .block-moving .market-tabObj-first__item .item-priceButton > button {
+.panel .block-moving .tabs-content .tabs-content__block__obj .item-priceButton > button {
   padding: 6px 20px;
   margin: 10px 0 0 0;
   color: rgb(255, 255, 255);
   background: transparent;
   border: 2px solid rgb(73, 130, 235);
 }
-.panel .block-moving .market-tabObj-first__item .item-priceButton > button:hover {
+.panel .block-moving .tabs-content .tabs-content__block__obj .item-priceButton > button:hover {
   background-color: rgb(73, 130, 235);
 }
-.panel .block-moving .market-tabObj-first__item:hover {
+.panel .block-moving .tabs-content__block__obj:hover {
   border-bottom: 2px solid rgb(179, 55, 207);
   border-top: 2px solid rgb(179, 55, 207);
 }
@@ -186,30 +215,6 @@ body {
   left: -500px;
   background-color: rgb(27, 31, 60);
   border-right: 2px solid rgb(73, 130, 235);
-}
-
-.market {
-  position: fixed;
-  right: -500px;
-  background-color: rgb(27, 31, 60);
-  border-left: 2px solid rgb(179, 55, 207);
-}
-.market .market-tab-content {
-  font-size: 11px;
-  display: none;
-}
-.market .tab-content-active {
-  display: block;
-}
-.market .panel__button-market:hover {
-  background-color: rgb(179, 55, 207);
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-}
-.market .panel__button-inventory:hover {
-  background-color: rgb(73, 130, 235);
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
 }
 
 .panel-below {
