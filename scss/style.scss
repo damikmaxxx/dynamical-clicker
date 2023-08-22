@@ -19,8 +19,8 @@ $color-help: rgb(38, 44, 80);
 $color-help_Second: rgb(27, 31, 60);
 $color-text_white: rgb(255, 255, 255);
 
-$font-medium: 18px;
-$font-small: 15px;
+$font-medium: 16px;
+$font-small: 13px;
 $font-verySmall: 11px;
 
 /* код */
@@ -123,6 +123,7 @@ body {
         width: 500px;
         height: calc(100vh - 200px);
         transition-duration: 0.2s;
+        font-size: $font-small;
         /* opacity: 0.9; */
 
         display: flex;
@@ -191,7 +192,7 @@ body {
                     }
                 }
 
-                .item-priceButton {
+                .item-Button {
                     display: flex;
                     align-items: center;
                     flex-direction: column;
@@ -201,8 +202,9 @@ body {
                     }
 
                     >button {
-                        padding: 6px 20px;
+                        padding: 6px 0;
                         margin: 10px 0 0 0;
+                        width: 110px;
                         color: $color-text_white;
                         background: transparent;
                         border: 2px solid $color-accent_Second;
@@ -217,9 +219,14 @@ body {
 
 
 
-        .tabs-content__block__obj:hover {
+        .border_color-mark:hover {
             border-bottom: 2px solid $color-accent;
             border-top: 2px solid $color-accent;
+        }
+
+        .border_color-inv:hover {
+            border-bottom: 2px solid $color-accent_Second;
+            border-top: 2px solid $color-accent_Second;
         }
     }
 }
