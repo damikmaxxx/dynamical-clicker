@@ -22,10 +22,10 @@
             </div>
             <div class="tabs-content">
                 <div class="tabs-content__block tab-content-active" data-tab-content="weopen">
-                    <div class="tabs-content__block__obj border_color-inv" >
+                    <div class="tabs-content__block__obj border_color-inv equipped-item-inv">
                         <div class="item-icon"></div>
                         <div class="item-info">
-                            <h2>Железная кирка</h2>
+                            <h2>Железная кирка (<span id="hand_level"></span>) уровень</h2>
                             <p>
                                 тут описание что то будет написано..., пррпрпрпрппррпр за место
                                 лорем, так ведь интереснее?
@@ -33,7 +33,7 @@
                         </div>
                         <div class="item-Button ">
                             <p>200 очков</p>
-                            <button>взять</button>
+                            <button class="item-Button-inv" onclick="STORE.upgrade('weapon','hand')">улучшать</button>
                         </div>
                     </div>
 
@@ -48,28 +48,14 @@
                         </div>
                         <div class="item-Button">
                             <p>1000 очков</p>
-                            <button>взять</button>
+                            <button class="item-Button-inv">улучшать</button>
                         </div>
                     </div>
 
-                    <div class="tabs-content__block__obj border_color-inv">
-                        <div class="item-icon"></div>
-                        <div class="item-info">
-                            <h2>БУ бур</h2>
-                            <p>
-                                тут описание что то будет написано..., пррпрпрпрппррпр за место
-                                лорем, так ведь интереснее?
-                            </p>
-                        </div>
-                        <div class="item-Button">
-                            <p>2000 очков</p>
-                            <button>взять</button>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="tabs-content__block" data-tab-content="item">
-                    <div class="tabs-content__block__obj border_color-inv">
+                    <div class="tabs-content__block__obj border_color-inv ">
                         <div class="item-icon"></div>
                         <div class="item-info">
                             <h2>Граната</h2>
@@ -80,7 +66,7 @@
                         </div>
                         <div class="item-Button">
                             <p>10 очков</p>
-                            <button>взять</button>
+                            <button class="item-Button-inv">улучшать</button>
                         </div>
                     </div>
                 </div>
@@ -97,7 +83,7 @@
                         </div>
                         <div class="item-Button">
                             <p>100 очков</p>
-                            <button>взять</button>
+                            <button class="item-Button-inv">улучшать</button>
                         </div>
                     </div>
                 </div>
@@ -113,9 +99,9 @@
                 сила удара:
                 <span id="damage">0</span>
             </div>
-            <div style="cursor: pointer;" onclick="STORE.upgrade('weapon','hand')" class="">
+            <!--             <div style="cursor: pointer;" onclick="STORE.upgrade('weapon','hand')" class="">
                 Удар (<span id="hand_level"></span>) уровень
-            </div>
+            </div> -->
         </div>
 
         <button class="panel__button-market">
@@ -130,7 +116,7 @@
             </div>
             <div class="tabs-content">
                 <div class="tabs-content__block tab-content-active" data-tab-content="weopen">
-                    <div class="tabs-content__block__obj border_color-mark" >
+                    <div class="tabs-content__block__obj border_color-mark">
                         <div class="item-icon"></div>
                         <div class="item-info">
                             <h2>Железная кирка</h2>
@@ -139,7 +125,7 @@
                                 лорем, так ведь интереснее?
                             </p>
                         </div>
-                        <div class="item-Button">
+                        <div class="item-Button ">
                             <p>200 очков</p>
                             <button>купить</button>
                         </div>
@@ -218,20 +204,21 @@
             <div class="item__block">
                 <div class="item">
                     <p>Удар</p>
+                    <div class="coldown-stage cooldown-below-stage"></div>
                 </div>
-                <div>∞</div>
+                <div class="item-number">∞</div>
             </div>
             <div class="item__block">
                 <div class="item">
                     <p>муха</p>
                 </div>
-                <div>12</div>
+                <div class="item-number">12</div>
             </div>
             <div class="item__block">
                 <div class="item">
                     <p>граната</p>
                 </div>
-                <div id="grenade">0</div>
+                <div id="grenade" class="item-number">0</div>
             </div>
         </div>
     </div>
