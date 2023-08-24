@@ -15,6 +15,8 @@ function UPDATE_VIEW_INFO() {
   document.getElementById("score").textContent = Math.round(STORE.score);
   document.getElementById("damage").textContent = STORE.properties.weapons[STORE.activeCursor.weapons.name].damage;
   document.getElementById("hand_level").textContent = STORE.properties.weapons.hand.level;
+  document.getElementById("grenade").textContent = STORE.items[STORE.activeCursor.items.name]
+  
 
 
   DOMElementsCreator.activeCursor()

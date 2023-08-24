@@ -14,10 +14,6 @@ a {
 
 /* переменные */
 /* код */
-:root {
-  --cooldown-weopen: rgb(35, 90, 209);
-}
-
 body {
   font-family: sans-serif;
   display: -ms-grid;
@@ -288,8 +284,6 @@ body {
   display: block;
 }
 .panel-below .panel-below__items .item__block .item .item__block-coldown .cooldown-stage-animation {
-  -webkit-animation-duration: var(--cooldown-weopen);
-          animation-duration: var(--cooldown-weopen);
   -webkit-animation-name: cooldown-animation;
           animation-name: cooldown-animation;
 }

@@ -107,26 +107,16 @@ let STORE = {
         console.log("нет такого оружия");
     }
 
-    let activateWeapon = this.activeCursor.weapons;
 
     this.activeCursor.weapons.recharge = true;
     this.animateCooldown("weapon", this.properties.weapons[activeW].cooldown);
     setTimeout(() => {
-      activateWeapon.recharge = false;
+      this.activeCursor.weapons.recharge = false;
     }, this.properties.weapons[activeW].cooldown * 1000);
   },
-  animateCooldown(type, sec) {
-    let typeEl;
-    console.log(type);
-    typeEl = document.querySelector("#cooldown-" + type).querySelector('.coldown-stage');
-    console.log(typeEl);
-    typeEl.style.animationDuration = sec + "s";
-    typeEl.classList.add("cooldown-stage-animation");
-    setTimeout(() => {
-      typeEl.classList.remove("cooldown-stage-animation");
-    }, sec * 1000);
-  },
+
   activateItem(info) {
+    if (this.activeCursor.items.recharge) return;
     if (info.type == "grenade" && this.items.grenade > 0) {
       STORE.activeItem.push(
         new Grenade({
@@ -140,11 +130,31 @@ let STORE = {
       );
       this.items.grenade--;
       this.animateCooldown("item", this.properties.items[this.activeCursor.items.name].cooldown);
+      this.activeCursor.items.recharge = true;
+      setTimeout(() => {
+        this.activeCursor.items.recharge = false;
+      }, this.properties.items[this.activeCursor.items.name].cooldown * 1000);
     }
   },
   activateMagic() {
+    if (this.activeCursor.magic.recharge) return;
     this.magicAnimation.start("circleElements", (x = mouse.x), (y = mouse.y));
     this.animateCooldown("magic",   this.properties.magic[this.activeCursor.magic.name].cooldown);
+    this.activeCursor.magic.recharge = true;
+    setTimeout(() => {
+      this.activeCursor.magic.recharge = false;
+    }, this.properties.magic[this.activeCursor.magic.name].cooldown * 1000);
+  },
+  animateCooldown(type, sec) {
+    let typeEl;
+    console.log(type);
+    typeEl = document.querySelector("#cooldown-" + type).querySelector('.coldown-stage');
+    console.log(typeEl);
+    typeEl.style.animationDuration = sec + "s";
+    typeEl.classList.add("cooldown-stage-animation");
+    setTimeout(() => {
+      typeEl.classList.remove("cooldown-stage-animation");
+    }, sec * 1000);
   },
   active() {
     const reverse = this.objects.map(
