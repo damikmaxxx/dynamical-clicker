@@ -268,30 +268,8 @@ body {
         display: flex;
         gap: 2vw;
 
-        .coldown-stage{
-            background-color: $color-black-04;
-            position: absolute;
-            display: block;
-
-            transition-duration:0.2s;
-        }
-
-        .cooldown-below-stage {
-            width: 60px;
-            height: 0px;
-
-            transition-duration:0.2s;
-        }
-
-        .cooldown-above-stage {
-            width: 60px;
-            height: 60px;
-
-            transition-duration:0.2s;
-        }
 
 
-    
 
         .item__block {
             >div {
@@ -313,6 +291,41 @@ body {
 
                 position: relative;
                 margin: 4px 0 0 0;
+
+
+                .item__block-coldown {
+                    position: absolute;
+                    width: 60px;
+                    height: 60px;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+
+                    .coldown-stage {
+                        background-color: $color-black-04;
+                        position: absolute;
+
+                        display: block;
+
+                        transition-duration: 0.2s;
+
+                    }
+
+                    .cooldown-below-stage {
+                        width: 60px;
+                        height: 0px;
+
+                        transition-duration: 0.2s;
+                    }
+
+                    .cooldown-above-stage {
+                        width: 60px;
+                        height: 60px;
+
+                        transition-duration: 0.2s;
+                    }
+                }
 
             }
 

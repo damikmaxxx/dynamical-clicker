@@ -84,7 +84,7 @@ document.addEventListener('click', (a) => {
     setTimeout(()=>{
       coldown_stage.classList.add("cooldown-below-stage")
       coldown_stage.classList.remove("cooldown-above-stage");
-    },250)
+    },200)
   }
 })
 
