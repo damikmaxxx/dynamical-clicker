@@ -26,6 +26,10 @@ body {
   font-size: 16px;
 }
 
+button {
+  cursor: pointer;
+}
+
 #canvas {
   height: 100%;
 }
@@ -37,12 +41,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .panel .panel__info {
   display: -webkit-box;
@@ -230,16 +234,32 @@ body {
   border-right: 2px solid rgb(73, 130, 235);
 }
 
-.panel-below {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.panel-below .panel-below_button {
+  width: 30vw;
+}
+.panel-below .panel-below_button .evolution_button {
+  height: 46px;
+  font-size: 16px;
+  width: 200px;
+  border: 2px solid rgb(255, 255, 255);
+  background: transparent;
+  color: rgb(255, 255, 255);
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  cursor: pointer;
+}
+.panel-below .panel-below_button .evolution_button:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(38, 44, 80);
 }
 .panel-below .panel-below__items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 2vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 20vw;
 }
 .panel-below .panel-below__items .item__block > div {
   text-align: center;

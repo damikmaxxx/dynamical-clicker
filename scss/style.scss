@@ -19,6 +19,7 @@ $color-help: rgb(38, 44, 80);
 $color-black-04: rgba(0, 0, 0, 0.4);
 $color-help_Second: rgb(27, 31, 60);
 $color-text_white: rgb(255, 255, 255);
+$color-white: rgb(255, 255, 255);
 
 $font-medium: 16px;
 $font-small: 13px;
@@ -36,10 +37,15 @@ body {
     font-size: $font-medium;
 }
 
+button {
+    cursor: pointer;
+}
+
 
 #canvas {
     height: 100%;
 }
+
 
 .panel {
     color: $color-text_white;
@@ -47,8 +53,8 @@ body {
     font-size: $font-small;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
 
 
@@ -261,11 +267,34 @@ body {
 
 
 .panel-below {
-    display: flex;
+
+    .panel-below_button {
+        width: 30vw;
+
+        .evolution_button {
+            height: 46px;
+            font-size: $font-medium;
+            width: 200px;
+
+            border: 2px solid $color-white;
+            background: transparent;
+            color: $color-text_white;
+
+            transition-duration: 0.2s;
+
+            cursor: pointer;
+        }
+
+        .evolution_button:hover {
+            background-color: $color-white;
+            color: $color-help;
+        }
+    }
 
     .panel-below__items {
         display: flex;
-        gap: 2vw;
+        justify-content: space-between;
+        width: 20vw;
 
 
 
@@ -310,17 +339,18 @@ body {
                     .cooldown-stage-animation {
                         animation-name: cooldown-animation;
                     }
+
                     @keyframes cooldown-animation {
                         from {
                             width: 60px;
                             height: 60px;
                         }
-                      
+
                         to {
                             width: 60px;
                             height: 0px;
                         }
-                      }
+                    }
                 }
 
             }
