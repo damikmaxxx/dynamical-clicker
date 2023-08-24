@@ -14,6 +14,10 @@ a {
 
 /* переменные */
 /* код */
+:root {
+  --cooldown-weopen: rgb(35, 90, 209);
+}
+
 body {
   font-family: sans-serif;
   display: -ms-grid;
@@ -282,20 +286,32 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   display: block;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
 }
-.panel-below .panel-below__items .item__block .item .item__block-coldown .cooldown-below-stage {
-  width: 60px;
-  height: 0px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
+.panel-below .panel-below__items .item__block .item .item__block-coldown .cooldown-stage-animation {
+  -webkit-animation-duration: var(--cooldown-weopen);
+          animation-duration: var(--cooldown-weopen);
+  -webkit-animation-name: cooldown-animation;
+          animation-name: cooldown-animation;
 }
-.panel-below .panel-below__items .item__block .item .item__block-coldown .cooldown-above-stage {
-  width: 60px;
-  height: 60px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
+@-webkit-keyframes cooldown-animation {
+  from {
+    width: 60px;
+    height: 60px;
+  }
+  to {
+    width: 60px;
+    height: 0px;
+  }
+}
+@keyframes cooldown-animation {
+  from {
+    width: 60px;
+    height: 60px;
+  }
+  to {
+    width: 60px;
+    height: 0px;
+  }
 }
 .panel-below .panel-below__items .item__block .item:hover {
   -webkit-box-shadow: 0 0 5px rgb(73, 130, 235);

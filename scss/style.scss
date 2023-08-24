@@ -25,7 +25,9 @@ $font-small: 13px;
 $font-verySmall: 11px;
 
 /* код */
-
+:root {
+    --cooldown-weopen: rgb(35, 90, 209);
+}
 body {
     font-family: sans-serif;
     display: grid;
@@ -305,26 +307,24 @@ body {
                     .coldown-stage {
                         background-color: $color-black-04;
                         position: absolute;
-
                         display: block;
-
-                        transition-duration: 0.2s;
-
                     }
 
-                    .cooldown-below-stage {
-                        width: 60px;
-                        height: 0px;
-
-                        transition-duration: 0.2s;
+                    .cooldown-stage-animation {
+                        animation-duration: var(--cooldown-weopen);
+                        animation-name: cooldown-animation;
                     }
-
-                    .cooldown-above-stage {
-                        width: 60px;
-                        height: 60px;
-
-                        transition-duration: 0.2s;
-                    }
+                    @keyframes cooldown-animation {
+                        from {
+                            width: 60px;
+                            height: 60px;
+                        }
+                      
+                        to {
+                            width: 60px;
+                            height: 0px;
+                        }
+                      }
                 }
 
             }

@@ -86,7 +86,7 @@ let STORE = {
   },
   activateWeapon() {
     if (this.activeCursor.weapons.recharge) return;
-    let activeW = this.activeCursor.weapons.name
+    let activeW = this.activeCursor.weapons.name;
     switch (activeW) {
       case "hand":
         let clickObj = this.objects.find((el) => {
@@ -116,7 +116,15 @@ let STORE = {
     }, this.properties.weapons[activeW].cooldown * 1000);
   },
   animateCooldown(type, sec) {
-    console.log("animate " + sec + "sec");
+    let typeEl;
+    console.log(type);
+    typeEl = document.querySelector("#cooldown-" + type).querySelector('.coldown-stage');
+    console.log(typeEl);
+    typeEl.style.animationDuration = sec + "s";
+    typeEl.classList.add("cooldown-stage-animation");
+    setTimeout(() => {
+      typeEl.classList.remove("cooldown-stage-animation");
+    }, sec * 1000);
   },
   activateItem(info) {
     if (info.type == "grenade" && this.items.grenade > 0) {
@@ -131,10 +139,12 @@ let STORE = {
         })
       );
       this.items.grenade--;
+      this.animateCooldown("item", this.properties.items[this.activeCursor.items.name].cooldown);
     }
   },
   activateMagic() {
     this.magicAnimation.start("circleElements", (x = mouse.x), (y = mouse.y));
+    this.animateCooldown("magic",   this.properties.magic[this.activeCursor.magic.name].cooldown);
   },
   active() {
     const reverse = this.objects.map(
@@ -224,9 +234,13 @@ let STORE = {
   upgrade(type, item) {
     switch (type) {
       case "weapon":
-        if (STORE.properties.weapons[item].level >= UPGRADES.weapons.hand.length) return;
+        if (
+          STORE.properties.weapons[item].level >= UPGRADES.weapons.hand.length
+        )
+          return;
         let lev = ++STORE.properties.weapons[item].level;
-        STORE.properties.weapons[item] = UPGRADES.weapons.hand[STORE.properties.weapons[item].level - 1];
+        STORE.properties.weapons[item] =
+          UPGRADES.weapons.hand[STORE.properties.weapons[item].level - 1];
         STORE.properties.weapons[item].level = lev;
         break;
     }

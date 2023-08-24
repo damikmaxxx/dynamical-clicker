@@ -73,20 +73,20 @@ for (var i = 0; i < tabs.length; i++) {
 
 
 /* при клике удара происходит анимация 0.2s */
-const canvas_click = document.getElementById('canvas')
-const coldown_stage = document.querySelector('.coldown-stage')
-document.addEventListener('click', (a) => {
-  const click_canvas = a.composedPath().includes(canvas_click);
-  console.log(click_canvas)
+// const canvas_click = document.getElementById('canvas')
+// const coldown_stage = document.querySelector('.coldown-stage')
+// document.addEventListener('click', (a) => {
+//   const click_canvas = a.composedPath().includes(canvas_click);
+//   console.log(click_canvas)
 
-  if(click_canvas){
-    coldown_stage.classList.add("cooldown-above-stage")
-    setTimeout(()=>{
-      coldown_stage.classList.add("cooldown-below-stage")
-      coldown_stage.classList.remove("cooldown-above-stage");
-    },200)
-  }
-})
+//   if(click_canvas){
+//     coldown_stage.classList.add("cooldown-above-stage")
+//     setTimeout(()=>{
+//       coldown_stage.classList.add("cooldown-below-stage")
+//       coldown_stage.classList.remove("cooldown-above-stage");
+//     },200)
+//   }
+// })
 
 
 
