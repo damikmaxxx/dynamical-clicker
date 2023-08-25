@@ -121,6 +121,17 @@ button {
         border-left: 2px solid $color-accent;
     }
 
+    .evolution{
+        position: fixed;
+        left: -500px;
+        background-color: $color-white;
+        border-left: 2px solid $color-accent;
+    }
+
+    .evolution_active{
+        left: 0px;
+    }
+
     .market_active {
         right: 0px;
     }
@@ -271,7 +282,7 @@ button {
     .panel-below_button {
         width: 30vw;
 
-        .evolution_button {
+        .panel__button-evolution {
             height: 46px;
             font-size: $font-medium;
             width: 200px;
@@ -285,7 +296,7 @@ button {
             cursor: pointer;
         }
 
-        .evolution_button:hover {
+        .panel__button-evolution:hover {
             background-color: $color-white;
             color: $color-help;
         }

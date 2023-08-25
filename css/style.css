@@ -102,6 +102,15 @@ button {
   background-color: rgb(27, 31, 60);
   border-left: 2px solid rgb(179, 55, 207);
 }
+.panel .evolution {
+  position: fixed;
+  left: -500px;
+  background-color: rgb(255, 255, 255);
+  border-left: 2px solid rgb(179, 55, 207);
+}
+.panel .evolution_active {
+  left: 0px;
+}
 .panel .market_active {
   right: 0px;
 }
@@ -237,7 +246,7 @@ button {
 .panel-below .panel-below_button {
   width: 30vw;
 }
-.panel-below .panel-below_button .evolution_button {
+.panel-below .panel-below_button .panel__button-evolution {
   height: 46px;
   font-size: 16px;
   width: 200px;
@@ -248,7 +257,7 @@ button {
           transition-duration: 0.2s;
   cursor: pointer;
 }
-.panel-below .panel-below_button .evolution_button:hover {
+.panel-below .panel-below_button .panel__button-evolution:hover {
   background-color: rgb(255, 255, 255);
   color: rgb(38, 44, 80);
 }
