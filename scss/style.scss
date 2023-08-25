@@ -20,6 +20,7 @@ $color-black-04: rgba(0, 0, 0, 0.4);
 $color-help_Second: rgb(27, 31, 60);
 $color-text_white: rgb(255, 255, 255);
 $color-white: rgb(255, 255, 255);
+$color-gray:rgb(219, 222, 238);
 
 $font-medium: 16px;
 $font-small: 13px;
@@ -124,8 +125,7 @@ button {
     .evolution{
         position: fixed;
         left: -500px;
-        background-color: $color-white;
-        border-left: 2px solid $color-accent;
+        background-color: $color-gray;
     }
 
     .evolution_active{

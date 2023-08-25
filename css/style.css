@@ -105,8 +105,7 @@ button {
 .panel .evolution {
   position: fixed;
   left: -500px;
-  background-color: rgb(255, 255, 255);
-  border-left: 2px solid rgb(179, 55, 207);
+  background-color: rgb(219, 222, 238);
 }
 .panel .evolution_active {
   left: 0px;

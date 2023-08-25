@@ -52,14 +52,15 @@ document.addEventListener("click", (a) => {
     (ActiveEvolution && (!click_evolution || clickButton_evolution)) ||
     (ActiveEvolution && clickButton_evolution)
   ) {
-    evolution.classList.remove("ActiveEvolution");
+    evolution.classList.remove("evolution_active");
     ActiveEvolution = !ActiveEvolution;
+    console.log('закрыть')
   } else if (!ActiveEvolution && clickButton_evolution) {
     evolution.classList.add("evolution_active");
     ActiveEvolution = !ActiveEvolution;
+    console.log('открыть')
   }
 
-  console.log(clickButton_evolution)
 });
 
 // РАБОТА С ТАБАМИ
