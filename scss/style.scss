@@ -19,7 +19,7 @@ $color-help: rgb(38, 44, 80);
 $color-black-04: rgba(0, 0, 0, 0.4);
 $color-help_Second: rgb(27, 31, 60);
 $color-text_white: rgb(255, 255, 255);
-$color-white: rgb(255, 255, 255);
+$color-white: rgb(245, 245, 248);
 $color-gray:rgb(219, 222, 238);
 
 $font-medium: 16px;
@@ -85,6 +85,8 @@ button {
         cursor: pointer;
     }
 
+
+
     .panel__button-inventory {
         height: 46px;
         font-size: $font-medium;
@@ -126,6 +128,11 @@ button {
         position: fixed;
         left: -500px;
         background-color: $color-gray;
+        color: $color-help_Second;
+
+        border-right: solid $color-help_Second 2px;
+
+
     }
 
     .evolution_active{
@@ -153,6 +160,7 @@ button {
             justify-content: space-around;
             position: relative;
 
+
             .block-moving__tab {
                 cursor: pointer;
                 width: 33.33%;
@@ -174,11 +182,16 @@ button {
 
             }
 
+            .tabs-line-evol {
+                background-color: $color-help_Second;
+                width: 50%;
+            }
+
             .tabs-line-mark {
                 background-color: $color-accent;
             }
         }
-
+        
         .tabs-content {
             .tabs-content__block {
                 display: none;
@@ -228,9 +241,21 @@ button {
                         border: 2px solid $color-accent;
                     }
 
+                    .item-Button-evol{
+                        border: 2px solid $color-help_Second;
+                        color: $color-help_Second;
+                    }
+
                     >.item-Button-inv:hover {
                         background-color: $color-accent;
                     }
+                    .item-Button-evol:hover{
+                        background-color: $color-help_Second;
+                        color: $color-white;
+                    }
+
+
+                    
 
                     >button {
                         padding: 6px 0;
@@ -250,10 +275,17 @@ button {
             .equipped-item-inv {
                 border: 2px solid $color-accent_Second;
             }
+
+            .equipped-item-evol {
+                background-color: $color-white;
+            }
+            
         }
 
 
-
+        .border_color-evol:hover{
+            background-color: $color-white;
+        }
         .border_color-mark:hover {
             border-bottom: 2px solid $color-accent;
             border-top: 2px solid $color-accent;

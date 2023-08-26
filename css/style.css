@@ -106,6 +106,8 @@ button {
   position: fixed;
   left: -500px;
   background-color: rgb(219, 222, 238);
+  color: rgb(27, 31, 60);
+  border-right: solid rgb(27, 31, 60) 2px;
 }
 .panel .evolution_active {
   left: 0px;
@@ -155,6 +157,10 @@ button {
 }
 .panel .block-moving .block-moving__tabs .tabs-line-inv {
   background-color: rgb(73, 130, 235);
+}
+.panel .block-moving .block-moving__tabs .tabs-line-evol {
+  background-color: rgb(27, 31, 60);
+  width: 50%;
 }
 .panel .block-moving .block-moving__tabs .tabs-line-mark {
   background-color: rgb(179, 55, 207);
@@ -209,8 +215,16 @@ button {
 .panel .block-moving .tabs-content .tabs-content__block__obj .item-Button .item-Button-inv {
   border: 2px solid rgb(179, 55, 207);
 }
+.panel .block-moving .tabs-content .tabs-content__block__obj .item-Button .item-Button-evol {
+  border: 2px solid rgb(27, 31, 60);
+  color: rgb(27, 31, 60);
+}
 .panel .block-moving .tabs-content .tabs-content__block__obj .item-Button > .item-Button-inv:hover {
   background-color: rgb(179, 55, 207);
+}
+.panel .block-moving .tabs-content .tabs-content__block__obj .item-Button .item-Button-evol:hover {
+  background-color: rgb(27, 31, 60);
+  color: rgb(245, 245, 248);
 }
 .panel .block-moving .tabs-content .tabs-content__block__obj .item-Button > button {
   padding: 6px 0;
@@ -225,6 +239,12 @@ button {
 }
 .panel .block-moving .tabs-content .equipped-item-inv {
   border: 2px solid rgb(73, 130, 235);
+}
+.panel .block-moving .tabs-content .equipped-item-evol {
+  background-color: rgb(245, 245, 248);
+}
+.panel .block-moving .border_color-evol:hover {
+  background-color: rgb(245, 245, 248);
 }
 .panel .block-moving .border_color-mark:hover {
   border-bottom: 2px solid rgb(179, 55, 207);
@@ -249,7 +269,7 @@ button {
   height: 46px;
   font-size: 16px;
   width: 200px;
-  border: 2px solid rgb(255, 255, 255);
+  border: 2px solid rgb(245, 245, 248);
   background: transparent;
   color: rgb(255, 255, 255);
   -webkit-transition-duration: 0.2s;
@@ -257,7 +277,7 @@ button {
   cursor: pointer;
 }
 .panel-below .panel-below_button .panel__button-evolution:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(245, 245, 248);
   color: rgb(38, 44, 80);
 }
 .panel-below .panel-below__items {
